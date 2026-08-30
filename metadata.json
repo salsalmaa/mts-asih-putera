@@ -1,0 +1,8 @@
+{
+  "name": "MTs Asih Putera",
+  "description": "Website Resmi MTs Asih Putera - Menumbuhkan Iman, Nalar, dan Kepemimpinan Remaja",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

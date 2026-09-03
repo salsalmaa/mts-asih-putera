@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 156" fill="none">
+  <!-- White Variant -->
+  <g fill="#FFFFFF">
+    <!-- Male Student Peci / Songkok -->
+    <path d="M136 5 C136 2, 142 0, 150 0 L188 0 C196 0, 202 2, 202 5 L203 28 C203 32, 199 35, 193 35 L144 35 C138 35, 136 32, 136 28 Z" />
+    
+    <!-- Male Head / Neck with Face Cutout (evenodd) -->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M136 38 C136 36, 140 34, 148 34 L192 34 C200 34, 204 36, 204 38 C206 58, 204 78, 194 90 C186 100, 176 104, 169 104 C162 104, 152 100, 144 90 C134 78, 134 58, 136 38 Z M 169 46 C 179 46 187 55 187 67 C 187 79 179 88 169 88 C 159 88 151 79 151 67 C 151 55 159 46 169 46 Z" />
+    
+    <!-- Male Student Shoulder & Body -->
+    <path d="M138 106 C150 116, 164 120, 172 120 C190 120, 208 110, 216 98 C224 108, 230 122, 230 138 L230 156 L138 156 Z" />
+    
+    <!-- Female Student Hijab with Face Cutout (evenodd) -->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M86 20 C112 20, 130 36, 130 68 C130 100, 122 116, 112 130 L112 156 L16 156 L16 124 C16 112, 20 98, 28 86 C34 76, 40 68, 48 58 C58 32, 68 20, 86 20 Z M 86 48 C 98 48 107 58 107 72 C 107 86 98 96 86 96 C 74 96 65 86 65 72 C 65 58 74 48 86 48 Z" />
+    
+    <!-- Open Book Left Wing Solid Base -->
+    <path d="M0 96 C0 96, 10 128, 24 156 L230 156 L230 136 C186 136, 138 131, 106 119 C72 107, 34 99, 0 96 Z" />
+  </g>
+
+  <!-- Fanned Book Page Lines -->
+  <g stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" fill="none">
+    <path d="M2 91 C30 94, 68 103, 104 115" />
+    <path d="M5 86 C34 89, 72 98, 106 110" />
+    <path d="M10 81 C38 84, 76 93, 108 105" />
+    <line x1="110" y1="136" x2="230" y2="136" />
+    <line x1="112" y1="143" x2="230" y2="143" />
+    <line x1="114" y1="149" x2="230" y2="149" />
+    <line x1="116" y1="155" x2="230" y2="155" />
+  </g>
+
+  <!-- Scallop Arches on Left Wing Base -->
+  <g fill="#0b5837">
+    <circle cx="38" cy="156" r="4.5" />
+    <circle cx="56" cy="156" r="4.5" />
+    <circle cx="74" cy="156" r="4.5" />
+  </g>
+
+  <!-- Vertical Separator Line -->
+  <rect x="256" y="0" width="8" height="156" rx="4" fill="#FFFFFF" />
+
+  <!-- Top Subtitle: MADRASAH TSANAWIYAH -->
+  <text x="300" y="34" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Montserrat', 'Inter', Roboto, sans-serif" font-weight="700" font-size="31" letter-spacing="0.32em" textLength="740" lengthAdjust="spacing">
+    MADRASAH TSANAWIYAH
+  </text>
+
+  <!-- Bottom Title: ASIH PUTERA -->
+  <text x="300" y="146" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Montserrat', 'Inter', Roboto, sans-serif" font-weight="900" font-size="126" letter-spacing="-0.02em" textLength="740" lengthAdjust="spacingAndGlyphs">
+    ASIH PUTERA
+  </text>
+</svg>

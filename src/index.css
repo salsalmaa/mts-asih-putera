@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #1f2937;
+    background-color: #faf9f5;
+  }
+  
+  h1, h2, h3, .font-serif-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ede4;
+}
+::-webkit-scrollbar-thumb {
+  background: #0d482c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #093721;
+}
+
+/* Statistics Number Shimmer & Glitter Glow */
+@keyframes glitterShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes statSparkle {
+  0%, 100% {
+    filter: drop-shadow(0 2px 6px rgba(200, 150, 53, 0.4)) drop-shadow(0 0 1px rgba(10, 75, 47, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 2px 14px rgba(229, 169, 60, 0.75)) drop-shadow(0 0 5px rgba(16, 185, 129, 0.6));
+  }
+}
+
+.stat-number-glow {
+  background: linear-gradient(135deg, #063821 0%, #0a4b2f 22%, #d49b28 45%, #fbe8a6 55%, #0a4b2f 78%, #052c1a 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glitterShine 7s ease-in-out infinite, statSparkle 3.5s ease-in-out infinite;
+}
+

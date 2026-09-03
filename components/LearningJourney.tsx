@@ -70,7 +70,7 @@ export const LearningJourney: React.FC = () => {
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0a4b2f]">
                     {stage.title}
                   </h3>
-                  <p className="text-sm sm:text-[14.5px] font-bold text-[#d49b28] uppercase tracking-wide mt-0.5">
+                  <p className="text-sm sm:text-base font-extrabold text-[#d49b28] uppercase tracking-wider mt-1">
                     {stage.subtitle}
                   </p>
                 </div>
@@ -92,4 +92,3 @@ export const LearningJourney: React.FC = () => {
     </section>
   );
 };
-

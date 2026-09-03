@@ -22,16 +22,16 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenPpdb, onOpenVisit }) => {
   return (
     <section className="relative w-full overflow-hidden bg-[#0a4b2f]">
-      {/* Background Image with elegant overlay */}
+      {/* Background Image with optimized balanced overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroBgImage}
           alt="Siswa-siswi MTs Asih Putera berdiskusi dan belajar aktif di kelas madrasah"
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-center scale-105 filter brightness-[0.88] contrast-[1.05]"
+          className="w-full h-full object-cover object-center scale-105 filter brightness-[0.92] contrast-[1.03]"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-[#072c1c]/95 via-[#0a4b2f]/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-linear-to-t from-[#062417] via-transparent to-black/20"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-[#072c1c]/85 via-[#0a4b2f]/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-[#062417]/75 via-transparent to-black/15"></div>
       </div>
 
       {/* Islamic Background Texture Overlay */}

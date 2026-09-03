@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BookOpen,
   FlaskConical,
   Users2,
   GraduationCap,
-  ChevronRight,
-  CheckCircle2,
   Sparkles
 } from 'lucide-react';
 import { WHY_US_DATA } from '../data/schoolData';
@@ -14,17 +12,14 @@ import {
   IslamicCanvasWatermark,
   TazhibCompactCorner,
   IslamicHeaderMedallion,
-  MosqueSilhouetteWatermark,
-  IslamicOrnamentalDivider
+  MosqueSilhouetteWatermark
 } from './IslamicElements';
 
 interface WhyUsProps {
   onSelectItem?: (item: WhyUsItem) => void;
 }
 
-export const WhyUsSection: React.FC<WhyUsProps> = ({ onSelectItem }) => {
-  const [activeDetailId, setActiveDetailId] = useState<string | null>(null);
-
+export const WhyUsSection: React.FC<WhyUsProps> = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'BookOpen':
@@ -41,7 +36,7 @@ export const WhyUsSection: React.FC<WhyUsProps> = ({ onSelectItem }) => {
   };
 
   return (
-    <section id="profil" className="w-full py-16 sm:py-24 bg-[#faf9f5] relative overflow-hidden">
+    <section id="profil" className="w-full py-10 sm:py-14 bg-[#faf9f5] relative overflow-hidden">
       {/* 1. Subtle Background Texture on Section Canvas */}
       <IslamicCanvasWatermark opacityClass="opacity-[0.065]" colorClass="text-[#0a4b2f]" />
 
@@ -49,8 +44,8 @@ export const WhyUsSection: React.FC<WhyUsProps> = ({ onSelectItem }) => {
       <MosqueSilhouetteWatermark className="opacity-[0.055] lg:opacity-[0.065]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
-        {/* Section Heading with Islamic Medallions & Ornamental Divider */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* Section Heading with Islamic Medallions */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="flex items-center justify-center gap-2 sm:gap-3.5 mb-2">
             <IslamicHeaderMedallion />
             <h2 className="font-serif text-3xl sm:text-4xl md:text-[38px] font-bold text-[#0a4b2f] tracking-tight">
@@ -59,24 +54,21 @@ export const WhyUsSection: React.FC<WhyUsProps> = ({ onSelectItem }) => {
             <IslamicHeaderMedallion isFlipped />
           </div>
 
-          <IslamicOrnamentalDivider className="my-3" color="#0a4b2f" />
-
           <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
             Membangun generasi muttaqin yang cerdas, berkarakter luhur, dan siap memimpin peradaban masa depan.
           </p>
         </div>
 
         {/* 2-Column x 2-Row Grid Structure for the 4 Content Blocks with Bright & Luminous Green Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-7xl mx-auto">
           {WHY_US_DATA.map((item) => {
-            const isExpanded = activeDetailId === item.id;
             return (
               <div
                 key={item.id}
                 className="relative bg-[#0f5c38] hover:bg-[#126b42] rounded-2xl shadow-lg shadow-[#0f5c38]/15 hover:shadow-xl hover:shadow-[#0f5c38]/25 transition-all duration-300 overflow-hidden flex flex-col group hover:-translate-y-1"
               >
-                {/* Visual Image Header Container (Crisp, High Exposure & Well-Lit) */}
-                <div className="relative w-full h-44 sm:h-48 md:h-52 overflow-hidden bg-slate-100">
+                {/* REVISI: Container gambar lebih kecil */}
+                <div className="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden bg-slate-100">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -158,41 +150,16 @@ export const WhyUsSection: React.FC<WhyUsProps> = ({ onSelectItem }) => {
                       </div>
 
                       {/* Title in Crisp White with Gold Hover */}
-                      <h3 className="font-serif text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#e5a93c] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug group-hover:text-[#e5a93c] transition-colors">
                         {item.title}
                       </h3>
                     </div>
 
                     {/* Description in High-Contrast Off-White/Emerald-100 */}
-                    <p className="text-emerald-50/95 group-hover:text-white text-xs sm:text-[13.5px] leading-relaxed mb-4 transition-colors">
+                    <p className="text-emerald-50/95 group-hover:text-white text-sm sm:text-base leading-relaxed transition-colors">
                       {item.description}
                     </p>
                   </div>
-
-                  {/* Lower Content: Expandable Key Points Button in Gold Accent */}
-                  {item.details && (
-                    <div className="mt-2 pt-2 border-t border-white/10 relative z-10">
-                      <button
-                        onClick={() => setActiveDetailId(isExpanded ? null : item.id)}
-                        className="text-xs font-semibold text-[#e5a93c] hover:text-white flex items-center gap-1.5 cursor-pointer transition-colors py-1 select-none"
-                      >
-                        <span>{isExpanded ? 'Tutup Detail' : 'Lihat Fokus Pembelajaran'}</span>
-                        <ChevronRight className={`w-3.5 h-3.5 text-[#e5a93c] transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''}`} />
-                      </button>
-
-                      {/* Expandable List with Gold Checks and Crisp White Text */}
-                      {isExpanded && (
-                        <ul className="mt-3 space-y-2 pt-3 border-t border-white/10 text-xs text-emerald-50/95 animate-in fade-in duration-200">
-                          {item.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-[#e5a93c] shrink-0 mt-0.5" />
-                              <span className="leading-relaxed">{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  )}
                 </div>
               </div>
             );

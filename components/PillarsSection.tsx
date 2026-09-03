@@ -11,39 +11,34 @@ export const PillarsSection: React.FC = () => {
   const renderPillarIslamicIcon = (id: string) => {
     switch (id) {
       case 'tauhid-akhlak':
-        // 1. Tauhid dan Akhlak: Delicate crescent moon & star with mosque dome silhouette
+        // Diperbesar tinggi dan proporsinya agar "berat" visualnya setara ikon buku/hati
         return (
-          <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Mosque dome silhouette */}
+          <svg viewBox="0 0 32 32" className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Shield / Perisai Outline - diperluas hingga hampir menyentuh batas atas/bawah */}
             <path
-              d="M7 26 V18 C7 15 10 12 16 7 C22 12 25 15 25 18 V26"
+              d="M16 3 C21 3 25 5 27 7 C27 15 25 23 16 29 C7 23 5 15 5 7 C7 5 11 3 16 3 Z"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="currentColor"
+              fillOpacity="0.08"
+            />
+            {/* Checkmark di dalam perisai */}
+            <path
+              d="M11 15.5 L14.5 19 L21 11.5"
+              stroke="#e5a93c"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {/* Base line */}
-            <path d="M5 26 H27" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            {/* Crescent Moon on top / inside dome */}
-            <path
-              d="M19 12 C16.5 12 14.5 14 14.5 16.5 C14.5 19 16.5 21 19 21 C15.5 21 13 18.5 13 16.5 C13 14.5 15.5 12 19 12 Z"
-              fill="#e5a93c"
-            />
-            {/* Star near crescent */}
-            <polygon
-              points="19.5,14 20.2,15.5 21.8,15.5 20.5,16.5 21,18 19.5,17.1 18,18 18.5,16.5 17.2,15.5 18.8,15.5"
-              fill="#e5a93c"
-            />
-            {/* Finial / Spire */}
-            <path d="M16 4 V7" stroke="#e5a93c" strokeWidth="1.5" strokeLinecap="round" />
-            <circle cx="16" cy="4" r="1" fill="#e5a93c" />
           </svg>
         );
 
       case 'pendidikan-hati':
         // 2. Pendidikan Sepenuh Hati: Open Quran / book with subtle heart-shaped pages
         return (
-          <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 32 32" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Rehal (Book stand) base */}
             <path d="M10 27 L22 17 M22 27 L10 17" stroke="#e5a93c" strokeWidth="1.4" strokeLinecap="round" />
             {/* Open book with heart-contoured top arches */}
@@ -68,7 +63,7 @@ export const PillarsSection: React.FC = () => {
       case 'sunda-islami':
         // 3. Karakter Sunda-Islami: Kujang blade silhouette fused with Islamic geometric motif
         return (
-          <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 32 32" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Kujang distinctive curved spine and belly */}
             <path
               d="M13 5 C15 6.5 18 10 17 14 C16 17 18 19 20 20 C18 21.5 15 21 14 18 C13.5 16.5 11 15 11 11 C11 7.5 13 5 13 5 Z"
@@ -96,7 +91,7 @@ export const PillarsSection: React.FC = () => {
       case 'kolaborasi-ortu':
         // 4. Kolaborasi Orang Tua: Family / community figures & intertwined supportive hands
         return (
-          <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 32 32" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Father / Parent 1 head & torso */}
             <circle cx="11" cy="9" r="2.3" stroke="currentColor" strokeWidth="1.4" />
             <path d="M6 21 C6 17 8 14.5 11 14.5 C12.8 14.5 14 15.5 14.8 17" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
@@ -121,7 +116,7 @@ export const PillarsSection: React.FC = () => {
       case 'future-ready':
         // 5. Future-Ready Education: Digital screen, upward innovation arrow & delicate crescent
         return (
-          <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 32 32" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Modern Computer / Tablet Screen */}
             <rect x="5" y="7" width="22" height="15" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1" />
             {/* Laptop / Screen Stand */}
@@ -147,7 +142,7 @@ export const PillarsSection: React.FC = () => {
       case 'sistem-mutu':
         // 6. Sistem Mutu Pendidikan: Quality certification badge / medal with Islamic 8-pointed star & checkmark
         return (
-          <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 32 32" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Hanging Medal Ribbons */}
             <path d="M12 20 L10 27 L16 24 L22 27 L20 20" stroke="#e5a93c" strokeWidth="1.3" fill="#e5a93c" fillOpacity="0.25" strokeLinejoin="round" />
             {/* Islamic 8-pointed Star (Rub el Hizb) Outer Medal Shape */}
@@ -168,7 +163,7 @@ export const PillarsSection: React.FC = () => {
 
       default:
         return (
-          <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10" fill="none">
+          <svg viewBox="0 0 32 32" className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16" fill="none">
             <circle cx="16" cy="16" r="10" stroke="currentColor" strokeWidth="1.5" />
           </svg>
         );
@@ -185,7 +180,7 @@ export const PillarsSection: React.FC = () => {
       <div className="absolute -bottom-24 right-1/3 w-96 h-96 bg-[#d49b28]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title Header (Clean and without the removed subtitle) */}
+        {/* Section Title Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <p className="text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-[#e5a93c] mb-1.5 font-sans">
             FONDASI NILAI & KARAKTER
@@ -198,13 +193,13 @@ export const PillarsSection: React.FC = () => {
           <IslamicOrnamentalDivider className="mt-3" color="#e5a93c" />
         </div>
 
-        {/* 2. Single Cohesive Horizontal Container / Bar Structure (Layanan Cepat style) */}
+        {/* 2. Single Cohesive Horizontal Container / Bar Structure */}
         <div className="bg-[#06331e]/95 border border-[#16603b] rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xs relative group/container">
           {/* Tazhib filigree corner flourishes */}
           <TazhibCornerOrnament position="top-left" className="opacity-25" />
           <TazhibCornerOrnament position="bottom-right" className="opacity-25" />
 
-          {/* Single Row of 6 Pillars with clean interactive hover & subtle vertical dividers */}
+          {/* Single Row of 6 Pillars */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#155a37]/80">
             {PILLARS_DATA.map((pillar) => (
               <div
@@ -214,12 +209,12 @@ export const PillarsSection: React.FC = () => {
                 {/* Subtle Hover Top Gold Line Indicator */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-[#d49b28] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
 
-                {/* Pillar Icon Container with gold border and smooth lift */}
+                {/* Pillar Icon Container */}
                 <div className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-full bg-[#083e24] border border-[#1d6b43] group-hover:border-[#e5a93c] text-white flex items-center justify-center mb-4 shadow-md group-hover:scale-105 group-hover:shadow-[0_0_18px_rgba(212,155,40,0.35)] transition-all duration-300">
                   {renderPillarIslamicIcon(pillar.id)}
                 </div>
 
-                {/* Pillar Title in High Contrast Clean White with Gold Hover */}
+                {/* Pillar Title */}
                 <h3 className="text-xs sm:text-[13px] font-bold text-white group-hover:text-[#e5a93c] leading-snug font-sans transition-colors duration-200 px-1">
                   {pillar.title}
                 </h3>

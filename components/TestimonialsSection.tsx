@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { testimonialsService } from '../services/testimonialsServices'; // <-- Menggunakan service testimoni
-import {
-  TazhibCompactCorner,
-  TazhibCornerOrnament
-} from './IslamicElements';
+import React, { useState, useEffect } from "react";
+import { testimonialsService } from "../services/testimonialsServices"; // <-- Menggunakan service testimoni
+import { TazhibCompactCorner, TazhibCornerOrnament } from "./IslamicElements";
 
 interface TestimonialItem {
   id: string | number;
@@ -14,7 +11,9 @@ interface TestimonialItem {
 }
 
 export const TestimonialsSection: React.FC = () => {
-  const [testimonialsList, setTestimonialsList] = useState<TestimonialItem[]>([]);
+  const [testimonialsList, setTestimonialsList] = useState<TestimonialItem[]>(
+    [],
+  );
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,30 +23,41 @@ export const TestimonialsSection: React.FC = () => {
         setLoading(true);
         // Memanggil service testimoni
         const responseData = await testimonialsService.getTestimonials();
-        
-        // Mengambil array dari struktur respons data service
-        const resultData = responseData?.Data?.Content || responseData?.Data || responseData?.data || responseData;
-        const rawData = Array.isArray(resultData) ? resultData : [];
-        
-        const formattedTestimonials: TestimonialItem[] = rawData.map((item: any, index: number) => {
-          // Membersihkan tag HTML dari deskripsi/kutipan jika ada
-          const rawQuote = item.Description || item.Content || item.ShortDescription || '';
-          const cleanQuote = rawQuote.replace(/<\/?[^>]+(>|$)/g, "");
 
-          return {
-            id: item.ContentId || item.Id || item.id || index + 1,
-            // Prioritaskan item.Title agar mengambil Judul dari Creation (Nama Penulis)
-            name: item.Title || item.Author || 'Orang Tua / Siswa',
-            role: item.Category || 'Orang Tua Siswa',
-            quote: cleanQuote,
-            avatar: item.SignedThumbnail || item.Image || item.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
-          };
-        });
+        // Mengambil array dari struktur respons data service
+        const resultData =
+          responseData?.Data?.Content ||
+          responseData?.Data ||
+          responseData?.data ||
+          responseData;
+        const rawData = Array.isArray(resultData) ? resultData : [];
+
+        const formattedTestimonials: TestimonialItem[] = rawData.map(
+          (item: any, index: number) => {
+            // Membersihkan tag HTML dari deskripsi/kutipan jika ada
+            const rawQuote =
+              item.Description || item.Content || item.ShortDescription || "";
+            const cleanQuote = rawQuote.replace(/<\/?[^>]+(>|$)/g, "");
+
+            return {
+              id: item.ContentId || item.Id || item.id || index + 1,
+              // Prioritaskan item.Title agar mengambil Judul dari Creation (Nama Penulis)
+              name: item.Title || item.Author || "Orang Tua / Siswa",
+              role: item.Category || "Orang Tua Siswa",
+              quote: cleanQuote,
+              avatar:
+                item.SignedThumbnail ||
+                item.Image ||
+                item.image ||
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+            };
+          },
+        );
 
         setTestimonialsList(formattedTestimonials);
       } catch (err: any) {
-        console.error('Gagal mengambil data testimoni:', err);
-        setError('Gagal memuat testimoni.');
+        console.error("Gagal mengambil data testimoni:", err);
+        setError("Gagal memuat testimoni.");
       } finally {
         setLoading(false);
       }
@@ -59,10 +69,22 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section className="w-full py-16 sm:py-24 bg-[#073922] relative overflow-hidden border-y border-[#0d5333]/50 shadow-inner">
       {/* Islamic Tazhib Gold Corner Ornaments matching 'Prestasi & Karya Nyata' */}
-      <TazhibCornerOrnament position="top-left" className="opacity-70 sm:w-24 sm:h-24" />
-      <TazhibCornerOrnament position="top-right" className="opacity-70 sm:w-24 sm:h-24" />
-      <TazhibCornerOrnament position="bottom-left" className="opacity-70 sm:w-24 sm:h-24" />
-      <TazhibCornerOrnament position="bottom-right" className="opacity-70 sm:w-24 sm:h-24" />
+      <TazhibCornerOrnament
+        position="top-left"
+        className="opacity-70 sm:w-24 sm:h-24"
+      />
+      <TazhibCornerOrnament
+        position="top-right"
+        className="opacity-70 sm:w-24 sm:h-24"
+      />
+      <TazhibCornerOrnament
+        position="bottom-left"
+        className="opacity-70 sm:w-24 sm:h-24"
+      />
+      <TazhibCornerOrnament
+        position="bottom-right"
+        className="opacity-70 sm:w-24 sm:h-24"
+      />
 
       {/* Subtle background watermarked circular accents */}
       <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 sm:w-80 h-64 sm:h-80 rounded-full bg-white/5 pointer-events-none" />
@@ -73,15 +95,58 @@ export const TestimonialsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-2 sm:gap-3.5 mb-3">
             {/* Left Gold Rosette Medallion */}
-            <div className="inline-flex items-center gap-1.5 text-[#d49b28]" aria-hidden="true">
-              <svg className="w-8 sm:w-14 h-2 text-[#d49b28]/60" viewBox="0 0 60 8" fill="none">
-                <path d="M60 4 H10 M10 4 C5 2 2 4 0 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+            <div
+              className="inline-flex items-center gap-1.5 text-[#d49b28]"
+              aria-hidden="true"
+            >
+              <svg
+                className="w-8 sm:w-14 h-2 text-[#d49b28]/60"
+                viewBox="0 0 60 8"
+                fill="none"
+              >
+                <path
+                  d="M60 4 H10 M10 4 C5 2 2 4 0 4"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                />
                 <circle cx="8" cy="4" r="1.5" fill="#ffd166" />
               </svg>
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" viewBox="0 0 24 24" fill="none">
-                <rect x="5" y="5" width="14" height="14" rx="1" stroke="currentColor" strokeWidth="1.3" fill="#073922" />
-                <rect x="5" y="5" width="14" height="14" rx="1" transform="rotate(45 12 12)" stroke="#ffd166" strokeWidth="1.1" fill="none" />
-                <circle cx="12" cy="12" r="2.5" fill="#d49b28" fillOpacity="0.4" stroke="currentColor" strokeWidth="0.8" />
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6 shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <rect
+                  x="5"
+                  y="5"
+                  width="14"
+                  height="14"
+                  rx="1"
+                  stroke="currentColor"
+                  strokeWidth="1.3"
+                  fill="#073922"
+                />
+                <rect
+                  x="5"
+                  y="5"
+                  width="14"
+                  height="14"
+                  rx="1"
+                  transform="rotate(45 12 12)"
+                  stroke="#ffd166"
+                  strokeWidth="1.1"
+                  fill="none"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="2.5"
+                  fill="#d49b28"
+                  fillOpacity="0.4"
+                  stroke="currentColor"
+                  strokeWidth="0.8"
+                />
                 <circle cx="12" cy="12" r="1.2" fill="#ffd166" />
               </svg>
             </div>
@@ -91,15 +156,58 @@ export const TestimonialsSection: React.FC = () => {
             </h2>
 
             {/* Right Gold Rosette Medallion */}
-            <div className="inline-flex items-center gap-1.5 text-[#d49b28] flex-row-reverse" aria-hidden="true">
-              <svg className="w-8 sm:w-14 h-2 text-[#d49b28]/60" viewBox="0 0 60 8" fill="none">
-                <path d="M0 4 H50 M50 4 C55 2 58 4 60 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+            <div
+              className="inline-flex items-center gap-1.5 text-[#d49b28] flex-row-reverse"
+              aria-hidden="true"
+            >
+              <svg
+                className="w-8 sm:w-14 h-2 text-[#d49b28]/60"
+                viewBox="0 0 60 8"
+                fill="none"
+              >
+                <path
+                  d="M0 4 H50 M50 4 C55 2 58 4 60 4"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                />
                 <circle cx="52" cy="4" r="1.5" fill="#ffd166" />
               </svg>
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" viewBox="0 0 24 24" fill="none">
-                <rect x="5" y="5" width="14" height="14" rx="1" stroke="currentColor" strokeWidth="1.3" fill="#073922" />
-                <rect x="5" y="5" width="14" height="14" rx="1" transform="rotate(45 12 12)" stroke="#ffd166" strokeWidth="1.1" fill="none" />
-                <circle cx="12" cy="12" r="2.5" fill="#d49b28" fillOpacity="0.4" stroke="currentColor" strokeWidth="0.8" />
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6 shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <rect
+                  x="5"
+                  y="5"
+                  width="14"
+                  height="14"
+                  rx="1"
+                  stroke="currentColor"
+                  strokeWidth="1.3"
+                  fill="#073922"
+                />
+                <rect
+                  x="5"
+                  y="5"
+                  width="14"
+                  height="14"
+                  rx="1"
+                  transform="rotate(45 12 12)"
+                  stroke="#ffd166"
+                  strokeWidth="1.1"
+                  fill="none"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="2.5"
+                  fill="#d49b28"
+                  fillOpacity="0.4"
+                  stroke="currentColor"
+                  strokeWidth="0.8"
+                />
                 <circle cx="12" cy="12" r="1.2" fill="#ffd166" />
               </svg>
             </div>
@@ -119,11 +227,15 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Loading / Error / Content States */}
         {loading ? (
-          <div className="text-center py-12 text-[#e2dac6] text-sm">Memuat testimoni...</div>
+          <div className="text-center py-12 text-[#e2dac6] text-sm">
+            Memuat testimoni...
+          </div>
         ) : error ? (
           <div className="text-center py-12 text-red-300 text-sm">{error}</div>
         ) : testimonialsList.length === 0 ? (
-          <div className="text-center py-12 text-[#e2dac6] text-sm">Belum ada testimoni tersedia.</div>
+          <div className="text-center py-12 text-[#e2dac6] text-sm">
+            Belum ada testimoni tersedia.
+          </div>
         ) : (
           /* Testimonials Grid with Clean White Content Cards */
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -133,10 +245,26 @@ export const TestimonialsSection: React.FC = () => {
                 className="relative bg-white border-2 border-[#d49b28]/30 hover:border-[#d49b28] rounded-2xl p-7 sm:p-8 flex flex-col justify-between shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:shadow-[0_18px_40px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 transition-all duration-300 group pt-10"
               >
                 {/* Tazhib Corner Flourishes */}
-                <TazhibCompactCorner position="top-left" color="#0a4b2f" accentColor="#d49b28" />
-                <TazhibCompactCorner position="top-right" color="#0a4b2f" accentColor="#d49b28" />
-                <TazhibCompactCorner position="bottom-left" color="#0a4b2f" accentColor="#d49b28" />
-                <TazhibCompactCorner position="bottom-right" color="#0a4b2f" accentColor="#d49b28" />
+                <TazhibCompactCorner
+                  position="top-left"
+                  color="#0a4b2f"
+                  accentColor="#d49b28"
+                />
+                <TazhibCompactCorner
+                  position="top-right"
+                  color="#0a4b2f"
+                  accentColor="#d49b28"
+                />
+                <TazhibCompactCorner
+                  position="bottom-left"
+                  color="#0a4b2f"
+                  accentColor="#d49b28"
+                />
+                <TazhibCompactCorner
+                  position="bottom-right"
+                  color="#0a4b2f"
+                  accentColor="#d49b28"
+                />
 
                 {/* Golden quote circle badge on top center */}
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#d49b28] group-hover:bg-[#0a4b2f] text-white flex items-center justify-center font-serif font-black text-2xl shadow-lg border-2 border-white group-hover:border-[#d49b28] transition-all z-20">
@@ -145,7 +273,7 @@ export const TestimonialsSection: React.FC = () => {
 
                 {/* Avatar picture */}
                 <div className="flex justify-center mb-5 relative z-10">
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#d49b28] group-hover:border-[#0a4b2f] shadow-md transition-colors">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-3 border-[#d49b28] group-hover:border-[#0a4b2f] shadow-md transition-colors">
                     <img
                       src={item.avatar}
                       alt={item.name}

@@ -479,8 +479,8 @@ export const NEWS_DATA: NewsItem[] = [
   {
     id: 'open-house',
     date: '25 MEI 2026',
-    day: '25 MEI',
-    monthYear: '2026',
+    day: '25',
+    monthYear: 'MEI 2026',
     title: 'Open House & PPDB 2026/2027',
     excerpt: 'Kunjungi sekolah dan temukan pengalaman belajar terbaik untuk buah hati Anda. Sesi trial class, konsultasi kurikulum, dan beasiswa prestasi.',
     image: imgNewsOpenHouse,
@@ -490,8 +490,8 @@ export const NEWS_DATA: NewsItem[] = [
   {
     id: 'milad',
     date: '12 MEI 2026',
-    day: '12 MEI',
-    monthYear: '2026',
+    day: '12',
+    monthYear: 'MEI 2026',
     title: 'Semarak Milad Asih Putera',
     excerpt: 'Merayakan kebersamaan, prestasi, dan kontribusi untuk melangkah lebih maju dalam membina generasi rabbani berwawasan global.',
     image: imgNewsMilad,
@@ -501,8 +501,8 @@ export const NEWS_DATA: NewsItem[] = [
   {
     id: 'leadership-day',
     date: '03 MEI 2026',
-    day: '03 MEI',
-    monthYear: '2026',
+    day: '03',
+    monthYear: 'MEI 2026',
     title: 'Outdoor Leadership Day',
     excerpt: 'Belajar memimpin, bekerja sama, dan menikmati alam dalam ekspedisi kepemimpinan di kaki Gunung Tangkuban Parahu.',
     image: imgNewsLeadership,

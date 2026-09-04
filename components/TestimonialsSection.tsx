@@ -67,7 +67,7 @@ export const TestimonialsSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full py-16 sm:py-24 bg-[#073922] relative overflow-hidden border-y border-[#0d5333]/50 shadow-inner">
+    <section className="w-full py-10 sm:py-14 bg-[#073922] relative overflow-hidden border-y border-[#0d5333]/50 shadow-inner">
       {/* Islamic Tazhib Gold Corner Ornaments matching 'Prestasi & Karya Nyata' */}
       <TazhibCornerOrnament
         position="top-left"
@@ -213,12 +213,7 @@ export const TestimonialsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Golden ornamental accent line */}
-          <div className="flex items-center justify-center gap-2">
-            <span className="h-0.5 w-12 bg-linear-to-r from-transparent via-[#d49b28] to-[#ffd166]"></span>
-            <div className="w-2 h-2 rotate-45 bg-[#ffd166] shadow-[0_0_8px_rgba(255,209,102,0.8)]"></div>
-            <span className="h-0.5 w-12 bg-linear-to-l from-transparent via-[#d49b28] to-[#ffd166]"></span>
-          </div>
+          
 
           <p className="text-[#e2dac6] text-xs sm:text-sm max-w-xl mx-auto mt-3 leading-relaxed font-medium drop-shadow-xs">
             Pengalaman nyata dan keteladanan dari keluarga besar MTs Asih Putera

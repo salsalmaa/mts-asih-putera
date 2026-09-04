@@ -64,7 +64,7 @@ export const FeaturedPrograms: React.FC<FeaturedProgramsProps> = ({
   }, []);
 
   return (
-    <section id="program" className="w-full py-16 sm:py-24 bg-[#faf9f5] relative overflow-hidden">
+    <section id="program" className="w-full py-10 sm:py-14 bg-[#faf9f5] relative overflow-hidden">
       {/* 1. Background Texture: Islamic geometric pattern as background watermark */}
       <IslamicCanvasWatermark opacityClass="opacity-[0.065]" colorClass="text-[#0a4b2f]" />
 
@@ -78,12 +78,7 @@ export const FeaturedPrograms: React.FC<FeaturedProgramsProps> = ({
             </h2>
             <IslamicHeaderMedallion isFlipped />
           </div>
-          {/* Subtle gold ornamental accent */}
-          <div className="flex items-center justify-center gap-2">
-            <span className="h-0.5 w-10 bg-[#d49b28]/60"></span>
-            <div className="w-1.5 h-1.5 rotate-45 bg-[#d49b28]"></div>
-            <span className="h-0.5 w-10 bg-[#d49b28]/60"></span>
-          </div>
+          
         </div>
 
         {/* Layout: Left Highlights Card + Right Programs Grid */}

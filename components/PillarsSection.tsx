@@ -2,7 +2,6 @@ import React from 'react';
 import { PILLARS_DATA } from '../data/schoolData';
 import {
   IslamicCanvasWatermark,
-  IslamicOrnamentalDivider,
   TazhibCornerOrnament,
 } from './IslamicElements';
 
@@ -171,7 +170,7 @@ export const PillarsSection: React.FC = () => {
   };
 
   return (
-    <section id="kurikulum" className="relative w-full py-14 sm:py-18 bg-[#042416] text-white border-y border-[#0d3f26] overflow-hidden">
+    <section id="kurikulum" className="relative w-full py-10 sm:py-14 bg-[#042416] text-white border-y border-[#0d3f26] overflow-hidden">
       {/* 1. Full Canvas Islamic Geometric Watermark Pattern */}
       <IslamicCanvasWatermark opacityClass="opacity-[0.04]" colorClass="text-[#d49b28]" />
 
@@ -188,9 +187,6 @@ export const PillarsSection: React.FC = () => {
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
             6 Pilar Pendidikan Asih Putera
           </h2>
-
-          {/* Ornamental Islamic Filigree Divider */}
-          <IslamicOrnamentalDivider className="mt-3" color="#e5a93c" />
         </div>
 
         {/* 2. Single Cohesive Horizontal Container / Bar Structure */}

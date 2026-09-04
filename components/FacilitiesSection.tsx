@@ -32,19 +32,21 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
           const rawDesc = item.Description || item.content || "";
           const cleanDesc = rawDesc.replace(/<\/?[^>]+(>|$)/g, "");
 
-          // Mengambil Attachment pertama jika ada
           const attachmentItem =
             item.Attachment && item.Attachment.length > 0
               ? item.Attachment[0]
               : null;
 
-          // Mengambil nama file dari Attachment, atau fallback ke properti Image/URL lain jika ada
-          const fileName = attachmentItem?.Name || "";
+          // Hilangkan ekstensi .enc jika itu menghalangi browser membaca file webp
+          let fileName = attachmentItem?.Name || "";
+          if (fileName.endsWith('.enc')) {
+            fileName = fileName.replace('.enc', '');
+          }
 
-          // Menentukan URL gambar menggunakan endpoint file Cration
           const imageUrl = fileName
-            ? `https://api.cration.co/file/${fileName}`
+            ? `/api/file/${fileName}`
             : item.URL || item.Image || "/images/default-facility.jpg";
+
           return {
             id: item.GalleryId || item.id,
             title: item.Title || item.title,
@@ -67,7 +69,7 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
   return (
     <section
       id="galeri"
-      className="w-full py-16 sm:py-24 bg-[#faf9f5] relative overflow-hidden"
+      className="w-full py-10 sm:py-14 bg-[#faf9f5] relative overflow-hidden"
     >
       {/* 1. Background Islamic Geometric Watermark */}
       <IslamicCanvasWatermark
@@ -88,12 +90,7 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
             </h2>
             <IslamicHeaderMedallion isFlipped />
           </div>
-          {/* Subtle gold ornamental accent */}
-          <div className="flex items-center justify-center gap-2">
-            <span className="h-0.5 w-10 bg-[#d49b28]/60"></span>
-            <div className="w-1.5 h-1.5 rotate-45 bg-[#d49b28]"></div>
-            <span className="h-0.5 w-10 bg-[#d49b28]/60"></span>
-          </div>
+          
         </div>
 
         {/* Loading State */}

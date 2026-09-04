@@ -27,12 +27,7 @@ export const LearningJourney: React.FC = () => {
             </h2>
             <IslamicHeaderMedallion isFlipped />
           </div>
-          {/* Subtle gold ornamental accent */}
-          <div className="flex items-center justify-center gap-2">
-            <span className="h-0.5 w-10 bg-[#d49b28]/60"></span>
-            <div className="w-1.5 h-1.5 rotate-45 bg-[#d49b28]"></div>
-            <span className="h-0.5 w-10 bg-[#d49b28]/60"></span>
-          </div>
+          
         </div>
 
         {/* 3 Steps with Connectors & Tazhib Corner Flourishes */}

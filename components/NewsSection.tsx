@@ -69,7 +69,7 @@ export const NewsSection: React.FC<NewsSectionProps> = ({ onSelectNews, onOpenAl
   const sideNewsList = newsList.slice(1, 5);
 
   return (
-    <section id="publikasi" className="w-full py-16 sm:py-24 bg-[#faf9f5] relative overflow-hidden">
+    <section id="publikasi" className="w-full py-10 sm:py-14 bg-[#faf9f5] relative overflow-hidden">
       {/* 1. Background Islamic Geometric Watermark */}
       <IslamicCanvasWatermark opacityClass="opacity-[0.065]" colorClass="text-[#0a4b2f]" />
 

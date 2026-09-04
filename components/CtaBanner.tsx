@@ -19,7 +19,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
   return (
     <section
       id="ppdb-banner"
-      className="w-full pt-12 pb-6 bg-[#042416] text-white relative overflow-hidden"
+      className="w-full py-10 sm:py-14 bg-[#042416] text-white relative overflow-hidden"
     >
       {/* Subtle Islamic Geometric Watermark Pattern across the banner */}
       <IslamicCanvasWatermark

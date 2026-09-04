@@ -12,7 +12,7 @@ export const PartnershipAndQuality: React.FC = () => {
   return (
     <section
       id="prestasi"
-      className="w-full py-16 sm:py-20 bg-[#042416] text-[#d1e7dd] border-y border-[#0d3f26] relative overflow-hidden"
+      className="w-full py-10 sm:py-14 bg-[#042416] text-[#d1e7dd] border-y border-[#0d3f26] relative overflow-hidden"
     >
       {/* Subtle Islamic Geometric Watermark matching Footer Section */}
       <IslamicCanvasWatermark

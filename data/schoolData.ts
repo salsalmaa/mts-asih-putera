@@ -588,4 +588,56 @@ export const NEWS_DATA: NewsItem[] = [
     fullContent:
       "Kegiatan Outdoor Leadership Day membawa para siswa mengasah ketangguhan fisik dan mental melalui lintas alam, problem solving beregu, tadabbur keindahan ciptaan Allah SWT, dan penanaman 1.000 bibit pohon sebagai bentuk kepedulian ekologis.",
   },
+  {
+    id: "tahfidz-juara",
+    date: "18 APR 2026",
+    day: "18",
+    monthYear: "APR 2026",
+    title: "Siswa MTs Asih Putera Raih Juara 1 MTQ Tingkat Kota",
+    excerpt:
+      "Keberhasilan luar biasa — Fawwaz Abdurrahman, siswa kelas 8, menyabet Juara 1 kategori Hafalan 10 Juz pada Musabaqah Tilawatil Quran tingkat Kota Cimahi, mengalahkan 47 peserta dari sekolah dan pesantren se-kota.",
+    image: imgTahfidzQuran,
+    category: "Prestasi Siswa",
+    fullContent:
+      "Program Tahfidz intensif MTs Asih Putera kembali membuktikan kualitasnya. Fawwaz Abdurrahman berhasil meraih Juara 1 MTQ tingkat kota berkat keistiqomahan setoran hafalan harian dan bimbingan intensif para ustaz bersanad. Pencapaian ini semakin memotivasi seluruh civitas akademika untuk terus meningkatkan standar pembinaan Qurani.",
+  },
+  {
+    id: "science-fair",
+    date: "10 APR 2026",
+    day: "10",
+    monthYear: "APR 2026",
+    title: "Proyek Sains Siswa Lolos Seleksi Kompetisi Nasional OPSI 2026",
+    excerpt:
+      "Tim riset kelas 9 berhasil lolos tahap seleksi regional Olimpiade Penelitian Siswa Indonesia (OPSI) dengan karya inovatif alat filtrasi air sederhana berbasis arang aktif bambu — solusi nyata untuk daerah krisis air bersih.",
+    image: imgProjectLearning,
+    category: "Akademik & Riset",
+    fullContent:
+      "Melalui pendekatan Project Based Learning yang diterapkan sejak kelas 7, tim riset MTs Asih Putera berhasil mengembangkan prototipe filtrasi air portabel yang lolos seleksi OPSI 2026. Karya ini merupakan bukti nyata bahwa pembelajaran berbasis masalah menghasilkan solusi yang berdampak, sekaligus membuktikan kemampuan siswa MTs bersaing di level nasional.",
+  },
+  {
+    id: "parenting-day",
+    date: "27 MAR 2026",
+    day: "27",
+    monthYear: "MAR 2026",
+    title: "Parenting Day: Orang Tua & Guru Bersinergi Demi Generasi Qurani",
+    excerpt:
+      "Ratusan orang tua hadir dalam Parenting Day bertema \u201cRumah & Madrasah: Satu Visi Mendidik Anak\u201d \u2014 sebuah ruang dialog terbuka antara keluarga dan pendidik untuk memastikan keselarasan nilai di rumah dan di sekolah.",
+    image: imgFacilityMosque,
+    category: "Kolaborasi & Komunitas",
+    fullContent:
+      "MTs Asih Putera percaya bahwa pendidikan terbaik lahir dari kolaborasi erat antara madrasah dan keluarga. Acara Parenting Day ini menghadirkan narasumber psikolog pendidikan Islam dan wali kelas untuk membahas strategi mendampingi remaja di era digital, menjaga konsistensi ibadah di rumah, dan cara merespons pergaulan anak dengan bijaksana.",
+  },
+  {
+    id: "beasiswa-prestasi",
+    date: "15 MAR 2026",
+    day: "15",
+    monthYear: "MAR 2026",
+    title: "100% Lulusan Kelas 9 Diterima di SMA/MA Favorit, 12 Siswa Raih Beasiswa Penuh",
+    excerpt:
+      "Seluruh lulusan angkatan 2025/2026 berhasil diterima di sekolah lanjutan pilihan mereka — dari MAN IC, SMAN unggulan, hingga pesantren modern. Sebanyak 12 siswa mendapat beasiswa penuh berkat rekam jejak akademik dan hafalan Quran yang terverifikasi.",
+    image: imgJourneyKelas9,
+    category: "Prestasi & Kelulusan",
+    fullContent:
+      "Capaian ini bukan kebetulan — melainkan hasil dari tiga tahun pembinaan terstruktur yang memadukan akademik, karakter, dan spiritualitas. Program bimbingan masuk sekolah lanjutan dimulai dari kelas 8, mencakup simulasi tes, latihan wawancara, dan pendampingan portofolio prestasi. MTs Asih Putera bangga menjadi batu loncatan terbaik menuju masa depan gemilang para santri.",
+  },
 ];

@@ -52,12 +52,22 @@ export default function Home() {
   const [programsList, setProgramsList] = useState<ProgramItem[]>([]);
 
   // Kode uji coba API Login & Fetch Programs
+  // Kode uji coba API Login & Fetch Programs
   useEffect(() => {
-    loginService.login();
-
-    const fetchAllPrograms = async () => {
+    const initData = async () => {
       try {
-        const responseData = await featuredProgramsService.getFeaturedPrograms();
+        // 1. Ambil token dari localStorage atau lakukan login jika belum ada
+        let token = localStorage.getItem("token");
+        if (!token) {
+          const loginRes = await loginService.login();
+          token = loginRes?.Data?.Token || loginRes?.Token;
+          if (token) {
+            localStorage.setItem("token", token);
+          }
+        }
+
+        // 2. Kirim token yang valid saat mengambil data program
+        const responseData = await featuredProgramsService.getFeaturedPrograms(token || undefined);
         const resultData = responseData?.Data?.Content || responseData?.Data || responseData?.data || responseData;
         const rawData = Array.isArray(resultData) ? resultData : [];
         
@@ -83,7 +93,7 @@ export default function Home() {
       }
     };
 
-    fetchAllPrograms();
+    initData();
   }, []);
 
   const handleOpenPpdb = () => {

@@ -1,16 +1,29 @@
 import axios from 'axios';
 
 export const testimonialsService = {
-  getTestimonials: async () => {
-    console.log("📌 Calling Local Testimonials API Route...");
+  getTestimonials: async (token?: string) => {
+    console.log("📌 Calling Backend Testimonials API with KanalType=K010...");
     
     try {
-      const response = await axios.get('/api/testimonials', { withCredentials: true });
-      console.log("✅ Testimonials Response:", response.data);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:7000/";
+      
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+
+      const response = await axios.get(`${apiUrl}api/content?KanalType=K010`, {
+        headers,
+      });
+
+      console.log("✅ Testimonials Response Status:", response.status);
       return response.data;
     } catch (error: any) {
-      console.error("❌ Testimonials Error:", error.response?.status || error.message);
-      throw new Error(`HTTP ${error.response?.status || 'Unknown'}`);
+      console.error("❌ Testimonials Service Error:", error.response?.status || error.message);
+      throw error;
     }
   }
 };

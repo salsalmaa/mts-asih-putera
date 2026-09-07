@@ -58,7 +58,7 @@ export interface FacilityItem {
 }
 
 export interface TestimonialItem {
-  id: string;
+  id: string | number;
   name: string;
   role: string;
   quote: string;

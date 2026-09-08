@@ -37,7 +37,10 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
               localStorage.setItem("token", token);
             }
           } catch (loginErr) {
-            console.error("Gagal melakukan login otomatis untuk galeri:", loginErr);
+            console.error(
+              "Gagal melakukan login otomatis untuk galeri:",
+              loginErr,
+            );
           }
         }
 
@@ -72,6 +75,7 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
           responseData?.Data ||
           responseData ||
           [];
+
         const rawData = Array.isArray(galleryList) ? galleryList : [];
 
         const formattedData: FacilityItem[] = rawData.map((item: any) => {
@@ -83,12 +87,28 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
               ? item.Attachment[0]
               : null;
 
-          const fileName = attachmentItem?.Name || attachmentItem?.FileName || "";
-          
-          // Menggunakan route /resources/asset/ sesuai yang terbaca sukses 200 di terminal Go
-          const imageUrl = fileName
-            ? `http://localhost:7000/resources/asset/${fileName}`
-            : item.URL || item.Image || "/images/default-facility.jpg";
+          let imageUrl = "/images/default-facility.jpg";
+
+          if (item.SignedThumbnail) {
+            imageUrl = item.SignedThumbnail;
+          } else if (item.Thumbnail) {
+            imageUrl = item.Thumbnail;
+          } else if (item.Image) {
+            imageUrl = item.Image;
+          } else if (attachmentItem) {
+            const attId = attachmentItem.Id || attachmentItem.id;
+            const attRefId = attachmentItem.RefId || attachmentItem.refId || item.GalleryId || item.id;
+            const attName = attachmentItem.Name || attachmentItem.FileName || attachmentItem.filename;
+
+            // Menggunakan proxy Next.js /api/attachment dengan parameter lengkap seperti kode slider temanmu
+            if (attId && attRefId && attName) {
+              imageUrl = `/api/attachment?Id=${attId}&RefId=${attRefId}&Filename=${encodeURIComponent(attName)}`;
+            } else if (attName) {
+              imageUrl = `/api/attachment?filename=${encodeURIComponent(attName)}`;
+            }
+          } else if (item.URL) {
+            imageUrl = item.URL;
+          }
 
           return {
             id: item.GalleryId || item.id,

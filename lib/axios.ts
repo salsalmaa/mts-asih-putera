@@ -1,12 +1,11 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:7000/",
+export const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:7000/api",
   timeout: 10000,
-  withCredentials: true, // Memastikan cookies/session terkirim otomatis di sisi klien
   headers: {
-    "X-Requested-With": "XMLHttpRequest",
+    "Content-Type": "application/json",
   },
 });
 
-export default api;
+export default apiClient;

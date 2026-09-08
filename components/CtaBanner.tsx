@@ -56,7 +56,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
 
                 {/* Short Description */}
                 <p className="text-emerald-100/85 text-xs sm:text-sm leading-relaxed mb-5">
-                  MTs Asih Putera membina remaja beriman, bernalar, berkarakter,
+                  MI Asih Putera membina remaja beriman, bernalar, berkarakter,
                   dan siap membawa manfaat.
                 </p>
               </div>
@@ -134,7 +134,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
             {/* 2. Center Column (Headline & Action Buttons) - 5 cols */}
             <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center text-center lg:text-left lg:pr-4">
               <h2 className="font-serif text-xl sm:text-2xl lg:text-2xl font-bold text-white mb-2 leading-snug">
-                Bergabunglah Bersama MTs Asih Putera
+                Bergabunglah Bersama MI Asih Putera
               </h2>
 
               <p className="text-emerald-100/90 text-xs sm:text-sm leading-relaxed mb-5 max-w-xl">

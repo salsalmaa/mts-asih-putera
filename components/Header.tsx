@@ -24,7 +24,7 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: "profil", label: "Profil MTs" },
+  { id: "profil", label: "Profil MI" },
   { id: "kurikulum", label: "Kurikulum" },
   { id: "program", label: "Program" },
   { id: "kesiswaan", label: "Kesiswaan" },
@@ -127,7 +127,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenPpdb, onOpenVisit }) => {
               className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
             >
               <Mail className="w-3.5 h-3.5 text-[#e5a93c]" />
-              <span>info@asihputera.sch.id</span>
+              <span>info@miasihputera.sch.id</span>
             </a>
           </div>
 

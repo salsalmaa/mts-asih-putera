@@ -141,7 +141,7 @@ export const OutcomesSection: React.FC = () => {
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
             <IslamicHeaderMedallion />
             <h2 className="font-serif text-2xl sm:text-3xl md:text-[34px] font-bold text-[#0a4b2f] tracking-tight">
-              4 Hasil Utama Pendidikan MTs Asih Putera
+              4 Hasil Utama Pendidikan MI Asih Putera
             </h2>
             <IslamicHeaderMedallion isFlipped />
           </div>

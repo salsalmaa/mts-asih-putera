@@ -7,7 +7,7 @@ import {
   HeartHandshake,
   Heart,
 } from "lucide-react";
-const heroBgImage = "/images/hero_new_bg.jpg";
+const heroBgImage = "/images/hero_new_bg_MI.jpg";
 import {
   IslamicCanvasWatermark,
   TazhibCompactCorner,
@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPpdb, onOpenVisit }) => {
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="w-2 h-2 rotate-45 bg-[#d49b28]"></span>
             <span className="font-sans font-bold text-lg sm:text-xl text-[#d49b28] tracking-wide drop-shadow-xs">
-              MTs Asih Putera
+              MI Asih Putera
             </span>
             <span className="w-2 h-2 rotate-45 bg-[#d49b28]"></span>
           </div>

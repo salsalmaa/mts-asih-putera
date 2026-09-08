@@ -23,7 +23,7 @@ export const LearningJourney: React.FC = () => {
           <div className="flex items-center justify-center gap-2 sm:gap-3.5 mb-3">
             <IslamicHeaderMedallion />
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#0a4b2f] tracking-tight">
-              Perjalanan Belajar Siswa MTs
+              Perjalanan Belajar Siswa MI
             </h2>
             <IslamicHeaderMedallion isFlipped />
           </div>

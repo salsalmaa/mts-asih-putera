@@ -49,7 +49,7 @@ export const WhyUsSection: React.FC<WhyUsProps> = () => {
           <div className="flex items-center justify-center gap-2 sm:gap-3.5 mb-2">
             <IslamicHeaderMedallion />
             <h2 className="font-serif text-3xl sm:text-4xl md:text-[38px] font-bold text-[#0a4b2f] tracking-tight">
-              Mengapa MTs Asih Putera?
+              Mengapa MI Asih Putera?
             </h2>
             <IslamicHeaderMedallion isFlipped />
           </div>

@@ -142,14 +142,14 @@ export const OUTCOMES_DATA: OutcomeItem[] = [
   },
   {
     id: "nalar-prestasi",
-    title: "Nalar & Prestasi",
+    title: "Ilmu & Nalar",
     description:
       "Remaja bernalar kritis, berprestasi akademik, dan berdaya saing.",
     iconName: "Trophy",
   },
   {
     id: "kepemimpinan-kemandirian",
-    title: "Kepemimpinan & Kemandirian",
+    title: "Karakter & Kemandirian",
     description:
       "Remaja siap memimpin diri, berkolaborasi, dan mandiri dalam setiap tantangan.",
     iconName: "Compass",
@@ -199,13 +199,13 @@ export const PILLARS_DATA: PillarItem[] = [
 export const JOURNEY_STAGES: JourneyStage[] = [
   {
     grade: "1",
-    title: "Kelas 7",
-    subtitle: "Adaptasi & Fondasi",
+    title: "Kelas 1-2",
+    subtitle: "Fondasi Diri",
     image: imgJourneyKelas7,
     items: [
-      "Adab belajar",
-      "Kemandirian",
-      "Literasi & numerasi",
+      "Adab dan Kebiasaan Baik",
+      "Kemandirian & Percaya Diri",
+      "Literasi & numerasi Dasar",
       "Kebiasaan ibadah",
     ],
     description:
@@ -213,28 +213,28 @@ export const JOURNEY_STAGES: JourneyStage[] = [
   },
   {
     grade: "2",
-    title: "Kelas 8",
-    subtitle: "Eksplorasi & Prestasi",
+    title: "Kelas 3-4",
+    subtitle: "Eksplorasi",
     image: imgJourneyKelas8,
     items: [
-      "Project & organisasi",
-      "Riset & eksperimen berkelanjutan",
+      "Berpikir Kritis & Kreatif",
+      "Kolaborasi & Komunikasi",
       "Public speaking",
-      "Kolaborasi tim",
+      "Proyek & Pengalaman Nyata",
     ],
     description:
       "Fase pengasahan bakat, pendalaman riset sains, keaktifan organisasi kesiswaan, serta pembekalan kemampuan presentasi dan kolaborasi tim nyata.",
   },
   {
     grade: "3",
-    title: "Kelas 9",
-    subtitle: "Kontribusi & Kesiapan Masa Depan",
+    title: "Kelas 5-6",
+    subtitle: "Kuture-Reusi",
     image: imgJourneyKelas9,
     items: [
-      "Kepemimpinan & life skills",
-      "City survival",
-      "Karya akhir",
-      "Kesiapan ke MA/SMA",
+      "Kepemimpinan & Tanggung Jawab",
+      "Life Skills & Problem Solving",
+      "Karya, Inovasi & Kebermanfaatan",
+      "Kesiapan ke MTs/SMP",
     ],
     description:
       "Fase pematangan kepemimpinan, pengujian survival di lapangan nyata, penyusunan karya tulis akhir, serta persiapan matang menuju jenjang SMA/MA unggulan.",

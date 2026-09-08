@@ -56,7 +56,7 @@ export const FooterClient: React.FC<FooterClientProps> = ({
               <ul className="space-y-2">
                 <li>
                   <button onClick={() => onScrollToSection('profil')} className="hover:text-[#e5a93c] transition-colors cursor-pointer text-left">
-                    Profil MTs
+                    Profil MI
                   </button>
                 </li>
                 <li>

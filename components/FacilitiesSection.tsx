@@ -83,13 +83,11 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
               ? item.Attachment[0]
               : null;
 
-          let fileName = attachmentItem?.Name || "";
-          if (fileName.endsWith('.enc')) {
-            fileName = fileName.replace('.enc', '');
-          }
-
+          const fileName = attachmentItem?.Name || attachmentItem?.FileName || "";
+          
+          // Menggunakan route /resources/asset/ sesuai yang terbaca sukses 200 di terminal Go
           const imageUrl = fileName
-            ? `/api/file/${fileName}`
+            ? `http://localhost:7000/resources/asset/${fileName}`
             : item.URL || item.Image || "/images/default-facility.jpg";
 
           return {

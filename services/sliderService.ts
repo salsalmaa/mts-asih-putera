@@ -2,26 +2,23 @@ import axios from 'axios';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:7000/";
 
-// Definisi interface untuk struktur data fasilitas / kehidupan siswa & attachment-nya
-export interface FacilityAttachment {
+export interface SliderAttachment {
   AttachmentId?: number;
   ReferenceId?: string | number;
   Name?: string;
   TypeFile?: string;
 }
 
-export interface FacilityItem {
-  GalleryId?: number;
-  Title?: string;
-  Description?: string;
-  Attachment?: FacilityAttachment[];
-  [key: string]: any; // Untuk menampung field tambahan dari backend Go jika ada
+export interface SliderItem {
+  SliderId: number;
+  Title: string;
+  Attachment?: SliderAttachment[];
 }
 
-export const galleryService = {
-  getGallery: async (token?: string, cookieString?: string) => {
-    console.log("📌 Calling Backend Go Fiber for Gallery directly from Server...");
-    
+export const sliderService = {
+  fetchSliders: async (token?: string, cookieString?: string): Promise<SliderItem[]> => {
+    console.log("📌 Calling Backend Go Fiber for Sliders directly from Server...");
+
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
     };
@@ -35,8 +32,8 @@ export const galleryService = {
     }
 
     try {
-      const response = await axios.get(`${apiUrl}api/Gallery`, { headers });
-      return response.data;
+      const response = await axios.get(`${apiUrl}api/slider`, { headers });
+      return response.data?.Data?.Slider ?? [];
     } catch (error: any) {
       throw error;
     }

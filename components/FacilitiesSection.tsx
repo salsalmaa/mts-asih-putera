@@ -3,11 +3,58 @@
 import React, { useState, useEffect } from "react";
 import { FacilityItem } from "../types";
 import { galleryService } from "../services/galleryServices";
-import { loginService } from "../services/loginServices"; // Menggunakan loginService yang terpusat
+import { loginService } from "../services/loginServices";
 import { FacilitiesSectionClient } from "./FacilitiesSectionClient";
 
 interface FacilitiesSectionProps {
   onSelectFacility: (facility: FacilityItem) => void;
+}
+
+// Fungsi helper penataan data (mirip gaya temanmu: buildSlides)
+function buildFacilities(galleryList: any[]): FacilityItem[] {
+  const rawData = Array.isArray(galleryList) ? galleryList : [];
+
+  return rawData.map((item: any) => {
+    const rawDesc = item.Description || item.content || "";
+    const cleanDesc = rawDesc.replace(/<\/?[^>]+(>|$)/g, "");
+
+    const attachmentItem =
+      item.Attachment && item.Attachment.length > 0
+        ? item.Attachment[0]
+        : null;
+
+    let imageUrl = "/images/default-facility.jpg";
+
+    if (item.SignedThumbnail) {
+      imageUrl = item.SignedThumbnail;
+    } else if (item.Thumbnail) {
+      imageUrl = item.Thumbnail;
+    } else if (item.Image) {
+      imageUrl = item.Image;
+    } else if (attachmentItem) {
+      const attId = attachmentItem.AttachmentId || attachmentItem.id || attachmentItem.Id;
+      const attRefId = attachmentItem.ReferenceId || attachmentItem.refId || attachmentItem.RefId;
+      const attName = attachmentItem.Name || attachmentItem.Filename || attachmentItem.filename;
+
+      const queryParams = new URLSearchParams();
+      if (attId != null) queryParams.append('Id', String(attId));
+      if (attRefId != null) queryParams.append('RefId', String(attRefId));
+      if (attName) queryParams.append('Filename', String(attName));
+
+      if (queryParams.toString()) {
+        imageUrl = `/api/attachment?${queryParams.toString()}`;
+      }
+    } else if (item.URL) {
+      imageUrl = item.URL;
+    }
+
+    return {
+      id: item.GalleryId || item.id,
+      title: item.Title || item.title,
+      description: cleanDesc,
+      image: imageUrl,
+    };
+  });
 }
 
 export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
@@ -18,12 +65,13 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function fetchFacilities() {
       try {
         setLoading(true);
         let token = localStorage.getItem("token");
 
-        // Jika token belum ada, panggil loginService.login() seperti pada FeaturedPrograms
         if (!token) {
           try {
             const loginRes = await loginService.login();
@@ -48,7 +96,6 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
         try {
           responseData = await galleryService.getGallery(token || undefined);
         } catch (err: any) {
-          // Jika unauthorized (401), hapus token lama & login ulang sekali lagi via loginService
           if (err?.response?.status === 401) {
             localStorage.removeItem("token");
             const loginRes = await loginService.login();
@@ -69,6 +116,8 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
           }
         }
 
+        if (!isMounted) return;
+
         const galleryList =
           responseData?.Data?.Gallery ||
           responseData?.Gallery ||
@@ -76,58 +125,24 @@ export const FacilitiesSection: React.FC<FacilitiesSectionProps> = ({
           responseData ||
           [];
 
-        const rawData = Array.isArray(galleryList) ? galleryList : [];
-
-        const formattedData: FacilityItem[] = rawData.map((item: any) => {
-          const rawDesc = item.Description || item.content || "";
-          const cleanDesc = rawDesc.replace(/<\/?[^>]+(>|$)/g, "");
-
-          const attachmentItem =
-            item.Attachment && item.Attachment.length > 0
-              ? item.Attachment[0]
-              : null;
-
-          let imageUrl = "/images/default-facility.jpg";
-
-          if (item.SignedThumbnail) {
-            imageUrl = item.SignedThumbnail;
-          } else if (item.Thumbnail) {
-            imageUrl = item.Thumbnail;
-          } else if (item.Image) {
-            imageUrl = item.Image;
-          } else if (attachmentItem) {
-            const attId = attachmentItem.Id || attachmentItem.id;
-            const attRefId = attachmentItem.RefId || attachmentItem.refId || item.GalleryId || item.id;
-            const attName = attachmentItem.Name || attachmentItem.FileName || attachmentItem.filename;
-
-            // Menggunakan proxy Next.js /api/attachment dengan parameter lengkap seperti kode slider temanmu
-            if (attId && attRefId && attName) {
-              imageUrl = `/api/attachment?Id=${attId}&RefId=${attRefId}&Filename=${encodeURIComponent(attName)}`;
-            } else if (attName) {
-              imageUrl = `/api/attachment?filename=${encodeURIComponent(attName)}`;
-            }
-          } else if (item.URL) {
-            imageUrl = item.URL;
-          }
-
-          return {
-            id: item.GalleryId || item.id,
-            title: item.Title || item.title,
-            description: cleanDesc,
-            image: imageUrl,
-          };
-        });
-
+        const formattedData = buildFacilities(galleryList);
         setFacilitiesList(formattedData);
       } catch (err: any) {
+        if (!isMounted) return;
         console.error("Gagal memuat data fasilitas:", err);
         setErrorMessage("Gagal memuat data fasilitas dari server.");
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     }
 
     fetchFacilities();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import axios from 'axios';
+import crypto from 'crypto';
 
-// Pemetaan tipe MIME khusus untuk file gambar fasilitas
 const MIME_MAP: Record<string, string> = {
+  mp4: 'video/mp4',
+  webm: 'video/webm',
+  mov: 'video/quicktime',
   webp: 'image/webp',
   jpg: 'image/jpeg',
   jpeg: 'image/jpeg',
@@ -14,73 +17,106 @@ const MIME_MAP: Record<string, string> = {
 function inferContentType(filename: string, fallback: string): string {
   if (fallback && fallback !== 'application/octet-stream') return fallback;
   const ext = filename.replace(/\.enc$/i, '').split('.').pop()?.toLowerCase() ?? '';
-  return MIME_MAP[ext] ?? 'image/webp';
+  return MIME_MAP[ext] ?? 'application/octet-stream';
 }
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   
+  // Mendukung parameter pencarian fleksibel milikmu (mengakomodasi gaya huruf besar/kecil)
   const id = searchParams.get('Id') || searchParams.get('id');
-  const refId = searchParams.get('RefId') || searchParams.get('refId');
-  const filename = searchParams.get('Filename') || searchParams.get('filename') || searchParams.get('Name');
+  const refId = searchParams.get('RefId') || searchParams.get('refId') || searchParams.get('ref_id');
+  const filename = searchParams.get('Filename') || searchParams.get('filename') || searchParams.get('Name') || searchParams.get('name');
 
   if (!filename) {
     return NextResponse.json({ error: 'Missing required param: Filename' }, { status: 400 });
   }
 
   const cookieStore = await cookies();
-  const token = cookieStore.get('token')?.value;
+  const token = 
+    cookieStore.get('token')?.value || 
+    cookieStore.get('access_token')?.value || 
+    cookieStore.get('auth_token')?.value;
+  
   const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
-  const baseUrl = (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:7000').replace(/\/api\/?$/, '');
+  const rawBaseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:7000';
+  const baseUrl = rawBaseUrl.replace(/\/api\/?$/, '').replace(/\/+$/, '');
 
   try {
-    let signedPath = '';
+    let targetUrl = '';
 
-    // Step 1: Wajib tembak metadata /api/Attachment untuk dapat SignedPath dari backend Go
+    // Jika parameter lengkap (seperti struktur temanmu), ambil SignedPath dari metadata API
     if (id && refId) {
-      const metaResponse = await axios.get(`${baseUrl}/api/Attachment`, {
-        params: { Id: id, RefId: refId, Filename: filename },
-        headers: authHeader,
-        validateStatus: (status) => status < 500,
-      });
+      try {
+        const metaResponse = await axios.get(`${baseUrl}/api/Attachment`, {
+          params: { Id: id, RefId: refId, Filename: filename },
+          headers: authHeader,
+        });
 
-      signedPath = metaResponse.data?.Data?.[0]?.SignedPath || metaResponse.data?.SignedPath || '';
+        const signedPath: string | undefined = metaResponse.data?.Data?.[0]?.SignedPath;
+        if (signedPath) {
+          targetUrl = signedPath;
+        }
+      } catch (metaErr) {
+        // Jika gagal mengambil via metadata API, fallback ke sistem signature aslimu
+        console.warn('Gagal mengambil metadata SignedPath, menggunakan fallback signature kriptografi.');
+      }
     }
 
-    // Fallback jika id/refId tidak terkirim dari frontend
-    if (!signedPath) {
-      signedPath = `${baseUrl}/resources/asset/${filename}`;
+    // Jika SignedPath tidak ditemukan dari metadata, gunakan logika HMAC Signature aslimu
+    if (!targetUrl) {
+      const expires = searchParams.get('expires') || String(Math.floor(Date.now() / 1000) + 86400);
+      const secretKey = process.env.ASSET_SECRET_KEY || 'cms-secret-key'; 
+      const signaturePayload = `${filename}:${expires}`;
+      const sig = crypto.createHmac('sha256', secretKey).update(signaturePayload).digest('hex');
+
+      targetUrl = `${baseUrl}/resources/asset/${filename}?expires=${expires}&sig=${sig}`;
     }
 
-    // Step 2: Ambil data biner gambar menggunakan SignedPath yang valid
-    const imageResponse = await axios.get(signedPath, {
+    // Step 2: Forward Range header untuk dukungan streaming video/media
+    const rangeHeader = req.headers.get('range');
+    const mediaResponse = await axios.get(targetUrl, {
       responseType: 'arraybuffer',
-      headers: authHeader,
+      headers: {
+        ...authHeader,
+        ...(rangeHeader && { Range: rangeHeader }),
+      },
       validateStatus: (status) => status < 500,
     });
 
-    if (imageResponse.status !== 200) {
+    if (mediaResponse.status !== 200 && mediaResponse.status !== 206) {
       return NextResponse.json(
-        { error: 'Failed to fetch image from source' },
-        { status: imageResponse.status }
+        { error: 'Failed to fetch media from source' },
+        { status: mediaResponse.status }
       );
     }
 
     const contentType = inferContentType(
       filename,
-      (imageResponse.headers['content-type'] as string) ?? ''
+      (mediaResponse.headers['content-type'] as string) ?? ''
     );
 
-    return new NextResponse(imageResponse.data, {
-      status: 200,
-      headers: {
-        'Content-Type': contentType,
-        'Cache-Control': 'public, max-age=3600',
-      },
+    const isPartial = mediaResponse.status === 206;
+    const responseHeaders: Record<string, string> = {
+      'Content-Type': contentType,
+      'Cache-Control': 'public, max-age=3600',
+      'Accept-Ranges': 'bytes',
+    };
+
+    if (isPartial) {
+      const contentRange = mediaResponse.headers['content-range'] as string | undefined;
+      const contentLength = mediaResponse.headers['content-length'] as string | undefined;
+      if (contentRange) responseHeaders['Content-Range'] = contentRange;
+      if (contentLength) responseHeaders['Content-Length'] = contentLength;
+    }
+
+    return new NextResponse(mediaResponse.data, {
+      status: isPartial ? 206 : 200,
+      headers: responseHeaders,
     });
   } catch (error: any) {
-    console.error('Failed to proxy facility attachment:', error?.response?.status, error.message);
+    console.error('Failed to proxy attachment:', error?.response?.status, error.message);
     return NextResponse.json(
       { error: 'Attachment not found' },
       { status: error?.response?.status ?? 404 }

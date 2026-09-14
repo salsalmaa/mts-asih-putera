@@ -69,7 +69,7 @@ export const FacilitiesSectionClient: React.FC<FacilitiesSectionClientProps> = (
               <div
                 key={item.id}
                 onClick={() => onSelectFacility(item)}
-                className="relative group cursor-pointer"
+                className="relative group cursor-pointer flex"
               >
                 {/* 1. Ambient Emerald & Antique Gold Themed Backlight Halo */}
                 <div
@@ -78,7 +78,7 @@ export const FacilitiesSectionClient: React.FC<FacilitiesSectionClientProps> = (
                 />
 
                 {/* 2. Main Card Container with Subtle Emerald-Green Luminescence & Elevation */}
-                <div className="relative bg-white rounded-xl overflow-hidden border border-[#0a4b2f]/25 group-hover:border-[#0a4b2f] shadow-[0_4px_18px_rgba(10,75,47,0.08),0_0_14px_rgba(10,75,47,0.12)] group-hover:shadow-[0_12px_30px_rgba(10,75,47,0.22),0_0_22px_rgba(21,121,92,0.32)] transition-all duration-300 flex flex-col group-hover:-translate-y-1.5 z-10">
+                <div className="relative w-full bg-white rounded-xl overflow-hidden border border-[#0a4b2f]/25 group-hover:border-[#0a4b2f] shadow-[0_4px_18px_rgba(10,75,47,0.08),0_0_14px_rgba(10,75,47,0.12)] group-hover:shadow-[0_12px_30px_rgba(10,75,47,0.22),0_0_22px_rgba(21,121,92,0.32)] transition-all duration-300 flex flex-col group-hover:-translate-y-1.5 z-10">
                   {/* 3. Top Rim-Light Shimmer Highlight in Refined Warm Gold & Emerald */}
                   <div
                     className="absolute top-0 inset-x-0 h-[1.5px] bg-linear-to-r from-transparent via-[#d49b28] to-transparent opacity-80 group-hover:opacity-100 group-hover:h-[2px] transition-all z-30 pointer-events-none"
@@ -92,7 +92,7 @@ export const FacilitiesSectionClient: React.FC<FacilitiesSectionClientProps> = (
                   <TazhibCompactCorner position="bottom-right" color="#0a4b2f" accentColor="#c89635" />
 
                   {/* Photo Container with Forest Green & Warm Accent Lighting Overlay */}
-                  <div className="h-32 sm:h-36 relative overflow-hidden bg-gray-100">
+                  <div className="h-32 sm:h-36 relative overflow-hidden bg-gray-100 shrink-0">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -110,9 +110,9 @@ export const FacilitiesSectionClient: React.FC<FacilitiesSectionClientProps> = (
                     </div>
                   </div>
 
-                  {/* Title Container */}
-                  <div className="p-3 text-center flex items-center justify-center min-h-[48px] relative z-10 bg-white border-t border-gray-100 group-hover:border-[#0a4b2f]/20 transition-colors">
-                    <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#0a4b2f] leading-snug group-hover:text-[#d49b28] transition-colors">
+                  {/* Title Container - Menggunakan flex-1 dan flex items-center agar tinggi seluruh card konsisten rata */}
+                  <div className="p-3 text-center flex-1 flex items-center justify-center min-h-[58px] sm:min-h-[64px] relative z-10 bg-white border-t border-gray-100 group-hover:border-[#0a4b2f]/20 transition-colors">
+                    <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#0a4b2f] leading-snug group-hover:text-[#d49b28] transition-colors line-clamp-2">
                       {item.title}
                     </h4>
                   </div>

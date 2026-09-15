@@ -1,19 +1,23 @@
-import React from 'react';
+import React from "react";
+
 import {
   BookOpen,
   FlaskConical,
   Users2,
   GraduationCap,
-  Sparkles
-} from 'lucide-react';
-import { WHY_US_DATA } from '../data/schoolData';
-import { WhyUsItem } from '../types';
+  Sparkles,
+} from "lucide-react";
+
+import { WHY_US_DATA } from "../data/schoolData";
+
+import { WhyUsItem } from "../types";
+
 import {
   IslamicCanvasWatermark,
-  TazhibCompactCorner,
   IslamicHeaderMedallion,
-  MosqueSilhouetteWatermark
-} from './IslamicElements';
+  MosqueSilhouetteWatermark,
+  TazhibCompactCorner,
+} from "./IslamicElements";
 
 interface WhyUsProps {
   onSelectItem?: (item: WhyUsItem) => void;
@@ -22,141 +26,130 @@ interface WhyUsProps {
 export const WhyUsSection: React.FC<WhyUsProps> = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'BookOpen':
+      case "BookOpen":
         return <BookOpen className="w-6 h-6 text-white" strokeWidth={1.8} />;
-      case 'FlaskConical':
-        return <FlaskConical className="w-6 h-6 text-white" strokeWidth={1.8} />;
-      case 'Users2':
+
+      case "FlaskConical":
+        return (
+          <FlaskConical className="w-6 h-6 text-white" strokeWidth={1.8} />
+        );
+
+      case "Users2":
         return <Users2 className="w-6 h-6 text-white" strokeWidth={1.8} />;
-      case 'GraduationCap':
-        return <GraduationCap className="w-6 h-6 text-white" strokeWidth={1.8} />;
+
+      case "GraduationCap":
+        return (
+          <GraduationCap className="w-6 h-6 text-white" strokeWidth={1.8} />
+        );
+
       default:
         return <BookOpen className="w-6 h-6 text-white" strokeWidth={1.8} />;
     }
   };
 
   return (
-    <section id="profil" className="w-full py-10 sm:py-14 bg-[#faf9f5] relative overflow-hidden">
+    <section
+      id="profil"
+      className="w-full py-10 sm:py-14 bg-[#faf9f5] relative overflow-hidden"
+    >
       {/* 1. Subtle Background Texture on Section Canvas */}
-      <IslamicCanvasWatermark opacityClass="opacity-[0.065]" colorClass="text-[#0a4b2f]" />
+
+      <IslamicCanvasWatermark
+        opacityClass="opacity-[0.065]"
+        colorClass="text-[#0a4b2f]"
+      />
 
       {/* 4. Subtle Mosque Dome & Minaret Silhouette */}
+
       <MosqueSilhouetteWatermark className="opacity-[0.055] lg:opacity-[0.065]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading with Islamic Medallions */}
+
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="flex items-center justify-center gap-2 sm:gap-3.5 mb-2">
             <IslamicHeaderMedallion />
+
             <h2 className="font-serif text-3xl sm:text-4xl md:text-[38px] font-bold text-[#0a4b2f] tracking-tight">
               Mengapa MTs Asih Putera?
             </h2>
+
             <IslamicHeaderMedallion isFlipped />
           </div>
 
           <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-            Membangun generasi muttaqin yang cerdas, berkarakter luhur, dan siap memimpin peradaban masa depan.
+            Membangun generasi muttaqin yang cerdas, berkarakter luhur, dan siap
+            memimpin peradaban masa depan.
           </p>
         </div>
 
-        {/* 2-Column x 2-Row Grid Structure for the 4 Content Blocks with Bright & Luminous Green Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-7xl mx-auto">
+        {/* 2-Column x 2-Row Grid Structure with Clean Modern Cards */}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-7xl mx-auto items-stretch">
           {WHY_US_DATA.map((item) => {
             return (
               <div
                 key={item.id}
-                className="relative bg-[#0f5c38] hover:bg-[#126b42] rounded-2xl shadow-lg shadow-[#0f5c38]/15 hover:shadow-xl hover:shadow-[#0f5c38]/25 transition-all duration-300 overflow-hidden flex flex-col group hover:-translate-y-1"
+                className="relative bg-white border border-gray-100 hover:border-[#0a4b2f]/30 rounded-2xl shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-[#0a4b2f]/10 transition-all duration-300 flex flex-col group hover:-translate-y-1 h-full"
               >
-                {/* REVISI: Container gambar lebih kecil */}
-                <div className="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden bg-slate-100">
+                {/* Modern Islamic Corner Ornaments di luar card agar nampak jelas */}
+
+                <TazhibCompactCorner className="absolute -top-1.5 -right-1.5 w-7 h-7 text-[#e5a93c]/60 group-hover:text-[#e5a93c] transition-colors duration-300 pointer-events-none z-30" />
+
+                <TazhibCompactCorner className="absolute -bottom-1.5 -left-1.5 w-7 h-7 text-[#e5a93c]/60 group-hover:text-[#e5a93c] transition-colors duration-300 pointer-events-none z-30 rotate-180" />
+
+                {/* Container Gambar dengan overflow-hidden sendiri */}
+
+                <div className="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden rounded-t-2xl bg-slate-100 shrink-0">
                   <img
                     src={item.image}
                     alt={item.title}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center brightness-105 contrast-105 saturate-105 group-hover:scale-105 transition-all duration-700"
                   />
-                  {/* Category Tag Pill floating on top of visual */}
+
+                  {/* Category Tag Pill */}
+
                   {item.tag && (
                     <div className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#0a4b2f]/90 backdrop-blur-md border border-[#e5a93c]/60 text-[#e5a93c] text-[10px] sm:text-[10.5px] font-bold tracking-wider uppercase shadow-md z-20">
                       <Sparkles className="w-3 h-3 text-[#e5a93c]" />
+
                       <span>{item.tag}</span>
                     </div>
                   )}
                 </div>
 
-                {/* Content Block Area with Luminous Emerald Green, Geometric Overlay & Gold Accents */}
-                <div className="relative p-5 sm:p-6 flex-1 flex flex-col justify-between overflow-hidden">
+                {/* Content Block Area */}
+
+                <div className="relative p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   {/* Subtle Gold Indicator Line on Card Hover */}
+
                   <div className="absolute top-0 left-0 right-0 h-1 bg-[#e5a93c] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
-                  {/* Dense & Elegant Islamic Geometric Pattern Overlay */}
-                  <div 
-                    className="absolute inset-0 pointer-events-none opacity-[0.08] group-hover:opacity-[0.14] transition-opacity text-[#e5a93c]"
-                    aria-hidden="true"
-                  >
-                    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <pattern
-                          id={`dense-islamic-pattern-${item.id}`}
-                          x="0"
-                          y="0"
-                          width="60"
-                          height="60"
-                          patternUnits="userSpaceOnUse"
-                        >
-                          <circle cx="30" cy="30" r="10" stroke="currentColor" strokeWidth="1" fill="none" />
-                          <circle cx="30" cy="30" r="3" fill="currentColor" />
-                          {/* 8-point star lattice */}
-                          <path
-                            d="M30 6 L36 20 L50 20 L40 28 L45 42 L30 35 L15 42 L20 28 L10 20 L24 20 Z"
-                            stroke="currentColor"
-                            strokeWidth="1"
-                            fill="none"
-                          />
-                          <path d="M0 0 L15 15 M60 0 L45 15 M0 60 L15 45 M60 60 L45 45" stroke="currentColor" strokeWidth="0.8" />
-                          <circle cx="0" cy="0" r="6" stroke="currentColor" strokeWidth="0.8" fill="none" />
-                          <circle cx="60" cy="0" r="6" stroke="currentColor" strokeWidth="0.8" fill="none" />
-                          <circle cx="0" cy="60" r="6" stroke="currentColor" strokeWidth="0.8" fill="none" />
-                          <circle cx="60" cy="60" r="6" stroke="currentColor" strokeWidth="0.8" fill="none" />
-                        </pattern>
-                      </defs>
-                      <rect width="100%" height="100%" fill={`url(#dense-islamic-pattern-${item.id})`} />
-                    </svg>
-                  </div>
-
-                  {/* Large Decorative Islamic Rosette in Card Corner */}
-                  <div 
-                    className="absolute -right-8 -bottom-8 w-36 h-36 pointer-events-none opacity-[0.08] group-hover:opacity-[0.15] transition-opacity text-[#e5a93c]"
-                    aria-hidden="true"
-                  >
-                    <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-currentColor" strokeWidth="1.5">
-                      <polygon points="50,5 63,37 95,50 63,63 50,95 37,63 5,50 37,37" />
-                      <polygon points="50,18 60,40 82,50 60,60 50,82 40,60 18,50 40,40" strokeDasharray="2 2" />
-                      <circle cx="50" cy="50" r="16" />
-                      <circle cx="50" cy="50" r="6" fill="currentColor" fillOpacity="0.4" />
-                    </svg>
-                  </div>
-
-                  {/* Delicate Tazhib Gold Corner Ornaments */}
-                  <TazhibCompactCorner position="top-left" color="#e5a93c" accentColor="#ffffff" />
-                  <TazhibCompactCorner position="bottom-right" color="#e5a93c" accentColor="#ffffff" />
-
                   {/* Upper Content: Icon, Title, Description */}
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3.5 mb-3.5">
-                      {/* Icon Badge with Gold Border & Hover Glow */}
-                      <div className="w-12 h-12 rounded-xl bg-[#157147] border border-[#238c59] group-hover:border-[#e5a93c] flex items-center justify-center shadow-md group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(229,169,60,0.35)] transition-all duration-300 shrink-0 text-white">
-                        {getIcon(item.iconName)}
-                      </div>
 
-                      {/* Title in Crisp White with Gold Hover */}
-                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug group-hover:text-[#e5a93c] transition-colors">
-                        {item.title}
-                      </h3>
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div>
+                      {/* Baris Atas: Ikon dan Judul */}
+
+                      <div className="flex items-start gap-3.5 mb-3.5">
+                        {/* Icon Badge */}
+
+                        <div className="w-12 h-12 rounded-xl bg-[#0a4b2f] border border-[#157147] group-hover:border-[#e5a93c] flex items-center justify-center shadow-md group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(229,169,60,0.35)] transition-all duration-300 shrink-0 text-white mt-0.5">
+                          {getIcon(item.iconName)}
+                        </div>
+
+                        {/* Title dengan min-height untuk menjaga kesejajaran card */}
+
+                        <h3 className="font-serif text-xl sm:text-2xl md:text-[26px] font-bold text-[#0a4b2f] leading-snug group-hover:text-[#126b42] transition-colors flex items-center min-h-[4.8rem] sm:min-h-[5.2rem]">
+                          {item.title}
+                        </h3>
+                      </div>
                     </div>
 
-                    {/* Description in High-Contrast Off-White/Emerald-100 */}
-                    <p className="text-emerald-50/95 group-hover:text-white text-sm sm:text-base leading-relaxed transition-colors">
+                    {/* Description di bagian bawah */}
+
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed pt-2">
                       {item.description}
                     </p>
                   </div>

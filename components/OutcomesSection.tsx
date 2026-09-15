@@ -2,7 +2,6 @@ import React from 'react';
 import { OUTCOMES_DATA } from '../data/schoolData';
 import {
   IslamicCanvasWatermark,
-  TazhibCompactCorner,
   IslamicHeaderMedallion
 } from './IslamicElements';
 
@@ -28,7 +27,7 @@ export const OutcomesSection: React.FC = () => {
               stroke="#ffffff"
               strokeWidth="1.6"
               strokeLinejoin="round"
-              fill="#0d5934"
+              fill="#0a4b2f"
               fillOpacity="0.9"
             />
             <path d="M18 14 V25" stroke="#e5a93c" strokeWidth="1.5" />
@@ -45,21 +44,21 @@ export const OutcomesSection: React.FC = () => {
               d="M10 8 H26 V17 C26 21.4 22.4 25 18 25 C13.6 25 10 21.4 10 17 V8 Z"
               stroke="#ffffff"
               strokeWidth="1.6"
-              fill="#0d5934"
+              fill="#0a4b2f"
               fillOpacity="0.9"
             />
             <path d="M10 11 H6 C4.9 11 4 11.9 4 13 V15 C4 17.2 5.8 19 8 19 H10" stroke="#e5a93c" strokeWidth="1.4" strokeLinecap="round" />
             <path d="M26 11 H30 C31.1 11 32 11.9 32 13 V15 C32 17.2 30.2 19 28 19 H26" stroke="#e5a93c" strokeWidth="1.4" strokeLinecap="round" />
             <path d="M18 25 V29 M12 29 H24" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" />
-            <rect x="15" y="13" width="6" height="6" stroke="#e5a93c" strokeWidth="1.2" fill="#0d5934" />
-            <rect x="15" y="13" width="6" height="6" transform="rotate(45 18 16)" stroke="#e5a93c" strokeWidth="1.2" fill="#0d5934" />
+            <rect x="15" y="13" width="6" height="6" stroke="#e5a93c" strokeWidth="1.2" fill="#0a4b2f" />
+            <rect x="15" y="13" width="6" height="6" transform="rotate(45 18 16)" stroke="#e5a93c" strokeWidth="1.2" fill="#0a4b2f" />
           </svg>
         );
       case 'kepemimpinan-kemandirian':
       case 'out-3':
         return (
           <svg viewBox="0 0 36 36" className="w-16 h-16 sm:w-20 sm:h-20" fill="none">
-            <circle cx="18" cy="18" r="13" stroke="#ffffff" strokeWidth="1.4" fill="#0d5934" fillOpacity="0.9" />
+            <circle cx="18" cy="18" r="13" stroke="#ffffff" strokeWidth="1.4" fill="#0a4b2f" fillOpacity="0.9" />
             <circle cx="18" cy="18" r="10.5" stroke="#e5a93c" strokeWidth="0.9" strokeDasharray="2 2" className="opacity-90" />
             <path
               d="M18 7 C14 7 11 10 11 14 C11 17 13 19 16 20 C13.5 19 12.5 16 13.5 13.5 C14.5 11 17 9.5 18 7 Z"
@@ -85,14 +84,14 @@ export const OutcomesSection: React.FC = () => {
               d="M18 28 C18 20 25 15 25 15 C25 15 25 22 18 28 Z"
               stroke="#ffffff"
               strokeWidth="1.5"
-              fill="#0d5934"
+              fill="#0a4b2f"
               fillOpacity="0.9"
             />
             <path
               d="M18 24 C18 17 12 13 12 13 C12 13 12 19 18 24 Z"
               stroke="#ffffff"
               strokeWidth="1.5"
-              fill="#0d5934"
+              fill="#0a4b2f"
               fillOpacity="0.9"
             />
             <path d="M18 28 V19" stroke="#e5a93c" strokeWidth="1.5" strokeLinecap="round" />
@@ -105,7 +104,7 @@ export const OutcomesSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full py-12 sm:py-16 bg-[#fdfcf9] border-t border-[#ece7d8] overflow-hidden">
+    <section className="relative w-full py-12 sm:py-16 bg-[#faf9f5] border-t border-gray-200/60 overflow-hidden">
       <IslamicCanvasWatermark opacityClass="opacity-[0.065]" colorClass="text-[#0a4b2f]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
@@ -130,17 +129,14 @@ export const OutcomesSection: React.FC = () => {
           {OUTCOMES_DATA.map((item) => (
             <div
               key={item.id}
-              className="relative overflow-hidden bg-[#0f6b3e] hover:bg-[#137b48] rounded-2xl p-6 sm:p-7 border border-[#1b854e] hover:border-[#e5a93c]/80 shadow-md hover:shadow-2xl hover:shadow-[0_12px_32px_rgba(15,107,62,0.25)] transition-all duration-300 hover:-translate-y-1 flex flex-col group text-center sm:text-left cursor-pointer"
+              className="relative overflow-hidden bg-white hover:bg-white rounded-2xl p-6 sm:p-7 border border-gray-100 hover:border-[#0a4b2f]/30 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-[#0a4b2f]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col group text-center sm:text-left cursor-pointer"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-[#e5a93c] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
 
-              <TazhibCompactCorner position="top-left" color="#e5a93c" accentColor="#ffffff" />
-              <TazhibCompactCorner position="top-right" color="#e5a93c" accentColor="#ffffff" />
-              <TazhibCompactCorner position="bottom-left" color="#e5a93c" accentColor="#ffffff" />
-              <TazhibCompactCorner position="bottom-right" color="#e5a93c" accentColor="#ffffff" />
+              {/* Ornamen sudut (TazhibCompactCorner) telah dihapus dari sini */}
 
               <div 
-                className="absolute -right-6 -bottom-6 w-32 h-32 pointer-events-none opacity-[0.08] group-hover:opacity-[0.18] transition-opacity text-[#e5a93c]"
+                className="absolute -right-6 -bottom-6 w-32 h-32 pointer-events-none opacity-[0.03] group-hover:opacity-[0.07] transition-opacity text-[#0a4b2f]"
                 aria-hidden="true"
               >
                 <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-currentColor" strokeWidth="2">
@@ -152,21 +148,21 @@ export const OutcomesSection: React.FC = () => {
               </div>
 
               {/* Enhanced Larger Prominent Icon Container */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#0d5934] border-2 border-[#20965c] group-hover:border-[#e5a93c] flex items-center justify-center mb-5 mx-auto sm:mx-0 shadow-md group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(229,169,60,0.35)] transition-all duration-300 relative z-10">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#0a4b2f] border-2 border-[#157147] group-hover:border-[#e5a93c] flex items-center justify-center mb-5 mx-auto sm:mx-0 shadow-md group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(229,169,60,0.35)] transition-all duration-300 relative z-10 text-white">
                 {renderEnhancedIcon(item.id)}
               </div>
 
-              <h3 className="font-serif text-lg font-bold text-white mb-2.5 leading-snug group-hover:text-[#e5a93c] transition-colors relative z-10">
+              <h3 className="font-serif text-lg font-bold text-[#0a4b2f] mb-2.5 leading-snug group-hover:text-[#126b42] transition-colors relative z-10">
                 {item.title}
               </h3>
 
-              <p className="text-emerald-50/95 group-hover:text-white text-xs sm:text-[13px] leading-relaxed relative z-10 transition-colors">
+              <p className="text-gray-600 group-hover:text-gray-900 text-xs sm:text-[13px] leading-relaxed relative z-10 transition-colors">
                 {item.description}
               </p>
 
-              <div className="mt-auto pt-4 border-t border-[#1b854e] flex items-center justify-between opacity-85 group-hover:opacity-100 transition-opacity text-[11px] font-semibold text-[#e5a93c] relative z-10">
+              <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between opacity-85 group-hover:opacity-100 transition-opacity text-[11px] font-semibold text-[#9c7428] relative z-10">
                 <span>Asih Putera Standard</span>
-                <span className="text-white group-hover:text-[#e5a93c] transition-colors">✦</span>
+                <span className="text-[#0a4b2f] group-hover:text-[#9c7428] transition-colors">✦</span>
               </div>
             </div>
           ))}

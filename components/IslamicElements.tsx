@@ -338,12 +338,12 @@ export const MosqueSilhouetteWatermark: React.FC<{ className?: string }> = ({
  * Compact Islamic Filigree (Tazhib) Corner for Program and Activity Cards
  */
 export const TazhibCompactCorner: React.FC<{
-  position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   className?: string;
   color?: string;
   accentColor?: string;
 }> = ({
-  position,
+  position = 'top-left',
   className = '',
   color = '#0a4b2f',
   accentColor = '#c89635',

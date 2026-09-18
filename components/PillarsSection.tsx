@@ -1,358 +1,447 @@
 import React from "react";
-import { PILLARS_DATA } from "../data/schoolData";
+import {
+  Sprout,
+  Mountain,
+  Target,
+  FileText,
+  Users,
+  BookOpen,
+  Shield,
+  Compass,
+  FlaskConical,
+  Award,
+  Scroll,
+  GraduationCap,
+  Heart,
+  Star,
+} from "lucide-react";
 import {
   IslamicCanvasWatermark,
-  IslamicHeaderMedallion,
-  TazhibCompactCorner,
 } from "./IslamicElements";
 
 export const PillarsSection: React.FC = () => {
-  const renderPillarIslamicIcon = (id: string) => {
-    switch (id) {
-      case "tauhid-akhlak":
-        return (
-          <svg
-            viewBox="0 0 32 32"
-            className="w-16 h-16 sm:w-20 sm:h-20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M16 3 C21 3 25 5 27 7 C27 15 25 23 16 29 C7 23 5 15 5 7 C7 5 11 3 16 3 Z"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="currentColor"
-              fillOpacity="0.1"
-            />
-            <path
-              d="M11 15.5 L14.5 19 L21 11.5"
-              stroke="#e5a93c"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        );
-
-      case "pendidikan-hati":
-        return (
-          <svg
-            viewBox="0 0 32 32"
-            className="w-16 h-16 sm:w-20 sm:h-20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 27 L22 17 M22 27 L10 17"
-              stroke="#e5a93c"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M16 11 C14.5 7.5 8 7.5 6 12 C5 14.5 6.5 19 16 23 C25.5 19 27 14.5 26 12 C24 7.5 17.5 7.5 16 11 Z"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinejoin="round"
-              fill="currentColor"
-              fillOpacity="0.15"
-            />
-            <path
-              d="M16 11 V23"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M16 14 C15.2 12.5 13 12.5 12.2 13.8 C11.8 14.8 12.6 16.5 16 18.5 C19.4 16.5 20.2 14.8 19.8 13.8 C19 12.5 16.8 12.5 16 14 Z"
-              fill="#e5a93c"
-            />
-          </svg>
-        );
-
-      case "sunda-islami":
-        return (
-          <svg
-            viewBox="0 0 32 32"
-            className="w-16 h-16 sm:w-20 sm:h-20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13 5 C15 6.5 18 10 17 14 C16 17 18 19 20 20 C18 21.5 15 21 14 18 C13.5 16.5 11 15 11 11 C11 7.5 13 5 13 5 Z"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinejoin="round"
-              fill="currentColor"
-              fillOpacity="0.15"
-            />
-            <path
-              d="M14 20 L13 27 C13 27 11 26 10 24"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            />
-            <circle cx="15" cy="11" r="1" fill="#e5a93c" />
-            <circle cx="15.5" cy="14" r="1" fill="#e5a93c" />
-            <circle cx="16" cy="17" r="1" fill="#e5a93c" />
-            <g transform="translate(20, 8) scale(0.35)">
-              <rect
-                x="0"
-                y="0"
-                width="16"
-                height="16"
-                stroke="#e5a93c"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="0"
-                y="0"
-                width="16"
-                height="16"
-                transform="rotate(45 8 8)"
-                stroke="#e5a93c"
-                strokeWidth="2"
-                fill="none"
-              />
-              <circle cx="8" cy="8" r="3" fill="#e5a93c" />
-            </g>
-          </svg>
-        );
-
-      case "kolaborasi-ortu":
-        return (
-          <svg
-            viewBox="0 0 32 32"
-            className="w-16 h-16 sm:w-20 sm:h-20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="11"
-              cy="9"
-              r="2.3"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-            <path
-              d="M6 21 C6 17 8 14.5 11 14.5 C12.8 14.5 14 15.5 14.8 17"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="21"
-              cy="9"
-              r="2.3"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-            <path
-              d="M26 21 C26 17 24 14.5 21 14.5 C19.2 14.5 18 15.5 17.2 17"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="16"
-              cy="14"
-              r="1.8"
-              stroke="#e5a93c"
-              strokeWidth="1.5"
-              fill="#e5a93c"
-            />
-            <path
-              d="M13 23 C13 20 14.3 18.5 16 18.5 C17.7 18.5 19 20 19 23"
-              stroke="#e5a93c"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M5 24 C8 26.5 12 27.5 16 27.5 C20 27.5 24 26.5 27 24"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            />
-            <path
-              d="M11 5 C13.5 3.5 18.5 3.5 21 5"
-              stroke="#e5a93c"
-              strokeWidth="1.4"
-              strokeLinecap="round"
-              strokeDasharray="1.5 2"
-            />
-          </svg>
-        );
-
-      case "future-ready":
-        return (
-          <svg
-            viewBox="0 0 32 32"
-            className="w-16 h-16 sm:w-20 sm:h-20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              x="5"
-              y="7"
-              width="22"
-              height="15"
-              rx="2"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              fill="currentColor"
-              fillOpacity="0.1"
-            />
-            <path
-              d="M12 22 L10 26 H22 L20 22"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M9 18 L14 13 L17 15 L22 10"
-              stroke="#e5a93c"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M18 10 H22 V14"
-              stroke="#e5a93c"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M23 9.5 C22 9.5 21.2 10.2 21.2 11.2 C21.2 12.2 22 12.9 23 12.9 C21.8 12.9 20.8 12 20.8 11.2 C20.8 10.4 21.8 9.5 23 9.5 Z"
-              fill="#e5a93c"
-            />
-            <circle cx="24" cy="10" r="0.8" fill="#e5a93c" />
-          </svg>
-        );
-
-      case "sistem-mutu":
-        return (
-          <svg
-            viewBox="0 0 32 32"
-            className="w-16 h-16 sm:w-20 sm:h-20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 20 L10 27 L16 24 L22 27 L20 20"
-              stroke="#e5a93c"
-              strokeWidth="1.4"
-              fill="#e5a93c"
-              fillOpacity="0.25"
-              strokeLinejoin="round"
-            />
-            <rect
-              x="7"
-              y="5"
-              width="18"
-              height="18"
-              rx="1.5"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              fill="#0a4b2f"
-            />
-            <rect
-              x="7"
-              y="5"
-              width="18"
-              height="18"
-              rx="1.5"
-              transform="rotate(45 16 14)"
-              stroke="#e5a93c"
-              strokeWidth="1.4"
-              fill="#0a4b2f"
-            />
-            <circle
-              cx="16"
-              cy="14"
-              r="5.5"
-              stroke="currentColor"
-              strokeWidth="1.2"
-              strokeDasharray="1.5 1.5"
-            />
-            <path
-              d="M13 14 L15.2 16.2 L19.2 11.8"
-              stroke="#e5a93c"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        );
-
-      default:
-        return (
-          <svg
-            viewBox="0 0 32 32"
-            className="w-16 h-16 sm:w-20 sm:h-20"
-            fill="none"
-          >
-            <circle
-              cx="16"
-              cy="16"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="1.6"
-            />
-          </svg>
-        );
-    }
-  };
-
   return (
     <section
       id="kurikulum"
-      className="relative w-full py-14 sm:py-20 bg-[#faf9f5] text-gray-900 border-y border-gray-200/60 overflow-hidden"
+      className="relative w-full py-12 sm:py-16 bg-[#faf9f5] text-gray-900 border-y border-gray-200/60 overflow-hidden"
     >
       <IslamicCanvasWatermark
-        opacityClass="opacity-[0.05]"
+        opacityClass="opacity-[0.03]"
         colorClass="text-[#0a4b2f]"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#9c7428] mb-2 font-sans">
-            FONDASI NILAI & KARAKTER
-          </p>
-          <div className="flex items-center justify-center gap-2 sm:gap-3.5 mb-3">
-            <IslamicHeaderMedallion />
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a4b2f] tracking-tight">
-              6 Pilar Pendidikan Asih Putera
+        
+        {/* Header Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-12">
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase text-[#9c7428]">
+                LEARN • GROW • LEAD • MAKE AN IMPACT
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#0a4b2f] tracking-tight drop-shadow-sm">
+              The Asih Putera Journey
             </h2>
-            <IslamicHeaderMedallion isFlipped />
+            <p className="text-base sm:text-lg font-serif font-bold text-[#0a4b2f]/90 mt-1">
+              Perjalanan 3 Tahun di MTs
+            </p>
+            <p className="text-sm sm:text-base text-gray-700 max-w-2xl mt-2 leading-relaxed font-medium">
+              Proses bertahap dan terintegrasi untuk membentuk remaja yang mengenal diri, menguatkan prinsip, dan siap melangkah ke masa depan yang lebih besar.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 flex justify-lg-end">
+            <div className="relative pl-5 border-l-4 border-[#e5a93c] max-w-md w-full py-2 bg-[#fcfbf9]/60 rounded-r-xl shadow-sm">
+              <span className="text-[#e5a93c] text-4xl font-serif leading-none absolute -top-2 left-1 select-none">“</span>
+              <p className="font-serif italic text-gray-800 text-sm sm:text-base leading-relaxed font-semibold">
+                Setiap tahap adalah bagian penting dari perjalanan, bukan sekadar jenjang kelas.
+              </p>
+              <span className="block text-[10px] sm:text-xs tracking-widest text-[#9c7428] uppercase mt-2 font-bold">
+                LANGKAH KECIL HARI INI UNTUK MASA DEPAN YANG LEBIH BAIK
+              </span>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative z-10">
-          {PILLARS_DATA.map((pillar) => (
-            <div
-              key={pillar.id}
-              className="relative bg-[#fefdfa] hover:bg-white border border-[#e8e4d9] hover:border-[#0a4b2f]/40 rounded-2xl p-7 sm:p-8 flex flex-col items-center text-center transition-all duration-300 transform hover:-translate-y-1.5 shadow-sm hover:shadow-xl hover:shadow-[#0a4b2f]/10 group cursor-pointer overflow-hidden"
+        {/* Layout Utama: 3 Kolom Panah Alur (Kelas VII, VIII, IX) + 1 Kolom Kapsul Lulusan MTs */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 relative z-10 mb-8 items-start">
+          
+          {/* ================= KELAS VII ================= */}
+          <div className="flex flex-col relative pt-7 h-full">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#0a4b2f] text-white flex flex-col items-center justify-center font-serif font-bold shadow-lg border-4 border-[#faf9f5] z-30">
+              <span className="text-[7px] tracking-widest leading-none text-white/80">KELAS</span>
+              <span className="text-xs leading-tight">VII</span>
+            </div>
+
+            <div 
+              className="relative bg-[#eaf1ec] pt-10 pb-5 px-5 text-center shadow-md z-10 shrink-0"
+              style={{
+                clipPath: "polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%)"
+              }}
             >
-              {/* Modern Islamic Corner Ornaments */}
-              <TazhibCompactCorner className="absolute -top-1.5 -left-1.5 w-7 h-7 text-[#e5a93c]/50 group-hover:text-[#e5a93c] transition-colors duration-300 pointer-events-none z-20" />
-              <TazhibCompactCorner className="absolute -bottom-1.5 -right-1.5 w-7 h-7 text-[#e5a93c]/50 group-hover:text-[#e5a93c] transition-colors duration-300 pointer-events-none z-20 rotate-180" />
+              <div className="w-10 h-10 rounded-full bg-[#0a4b2f]/10 text-[#0a4b2f] flex items-center justify-center mx-auto mb-1.5 mt-1">
+                <Sprout className="w-5 h-5" />
+              </div>
+              <span className="text-[8px] tracking-[0.2em] font-bold text-[#9c7428] uppercase block mb-0.5">
+                TAHAP PERJALANAN —
+              </span>
+              <h3 className="font-serif text-base font-bold text-[#0a4b2f] mb-0.5">
+                MENGENAL DIRI
+              </h3>
+              <p className="text-[11px] font-serif italic text-[#0a4b2f]/80">Siapa saya?</p>
+            </div>
 
-              {/* Accent Line on Card Hover */}
-              <div className="absolute top-0 left-6 right-6 h-1 bg-[#e5a93c] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full z-20" />
-
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#0a4b2f] border-2 border-[#157147] group-hover:border-[#e5a93c] text-white flex items-center justify-center mb-5 shadow-md group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(229,169,60,0.35)] transition-all duration-300">
-                {renderPillarIslamicIcon(pillar.id)}
+            <div className="bg-[#eaf1ec]/50 pb-5 px-5 flex-1 rounded-b-xl border border-[#d2e2d7] shadow-sm flex flex-col -mt-2 pt-5">
+              <div className="border-t border-[#d2e2d7] pt-3 mb-3">
+                <span className="block text-[8px] tracking-widest font-bold text-[#9c7428] uppercase mb-1">
+                  FOKUS UTAMA —
+                </span>
+                <p className="text-xs text-gray-800 leading-relaxed font-medium">
+                  Membangun kesadaran diri, kebiasaan baik, dan dasar-dasar penting untuk bertumbuh.
+                </p>
               </div>
 
-              <h3 className="text-base sm:text-lg font-bold text-[#0a4b2f] group-hover:text-[#126b42] leading-snug font-serif transition-colors duration-200">
-                {pillar.title}
-              </h3>
+              <div className="pt-2 border-t border-[#d2e2d7] flex flex-col flex-1">
+                <span className="block text-[8px] tracking-widest font-bold text-[#9c7428] uppercase mb-2">
+                  PROGRAM KUNCI —
+                </span>
+                <div className="space-y-3.5">
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><FileText className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Proposal Diri</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Mengenali potensi dan tujuan hidup</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><Users className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Mentoring</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Pendampingan personal</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><BookOpen className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Literasi & Numerasi</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Menguatkan kemampuan dasar</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><Shield className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Pembiasaan Karakter</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Disiplin, adab, dan tanggung jawab</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* ================= KELAS VIII ================= */}
+          <div className="flex flex-col relative pt-7 h-full">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#0a4b2f] text-white flex flex-col items-center justify-center font-serif font-bold shadow-lg border-4 border-[#faf9f5] z-30">
+              <span className="text-[7px] tracking-widest leading-none text-white/80">KELAS</span>
+              <span className="text-xs leading-tight">VIII</span>
+            </div>
+
+            <div 
+              className="relative bg-[#f2efe9] pt-10 pb-5 px-5 text-center shadow-md z-10 shrink-0"
+              style={{
+                clipPath: "polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%)"
+              }}
+            >
+              <div className="w-10 h-10 rounded-full bg-[#0a4b2f]/10 text-[#0a4b2f] flex items-center justify-center mx-auto mb-1.5 mt-1">
+                <Mountain className="w-5 h-5" />
+              </div>
+              <span className="text-[8px] tracking-[0.2em] font-bold text-[#9c7428] uppercase block mb-0.5">
+                TAHAP PERJALANAN —
+              </span>
+              <h3 className="font-serif text-base font-bold text-[#0a4b2f] mb-0.5">
+                MENGUATKAN DIRI
+              </h3>
+              <p className="text-[11px] font-serif italic text-[#0a4b2f]/80">Bagaimana saya bertumbuh?</p>
+            </div>
+
+            <div className="bg-[#f2efe9]/50 pb-5 px-5 flex-1 rounded-b-xl border border-[#e4dfd3] shadow-sm flex flex-col -mt-2 pt-5">
+              <div className="border-t border-[#e4dfd3] pt-3 mb-3">
+                <span className="block text-[8px] tracking-widest font-bold text-[#9c7428] uppercase mb-1">
+                  FOKUS UTAMA —
+                </span>
+                <p className="text-xs text-gray-800 leading-relaxed font-medium">
+                  Mengasah kemampuan, memperluas pengalaman, dan belajar dari tantangan nyata.
+                </p>
+              </div>
+
+              <div className="pt-2 border-t border-[#e4dfd3] flex flex-col flex-1">
+                <span className="block text-[8px] tracking-widest font-bold text-[#9c7428] uppercase mb-2">
+                  PROGRAM KUNCI —
+                </span>
+                <div className="space-y-3.5">
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><Compass className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">City Survival</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Belajar kemandirian di dunia nyata</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><FlaskConical className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Project & Science Experience</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Berpikir kritis & pemecahan masalah</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><Shield className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Garda Upstander</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Berani menjaga kebaikan</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><Users className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Organisasi & Leadership</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Melatih kepemimpinan & kerja sama</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ================= KELAS IX ================= */}
+          <div className="flex flex-col relative pt-7 h-full">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#c28e38] text-white flex flex-col items-center justify-center font-serif font-bold shadow-lg border-4 border-[#faf9f5] z-30">
+              <span className="text-[7px] tracking-widest leading-none text-white/80">KELAS</span>
+              <span className="text-xs leading-tight">IX</span>
+            </div>
+
+            <div 
+              className="relative bg-[#f7f2ea] pt-10 pb-5 px-5 text-center shadow-md z-10 shrink-0"
+              style={{
+                clipPath: "polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%)"
+              }}
+            >
+              <div className="w-10 h-10 rounded-full bg-[#0a4b2f]/10 text-[#0a4b2f] flex items-center justify-center mx-auto mb-1.5 mt-1">
+                <Target className="w-5 h-5" />
+              </div>
+              <span className="text-[8px] tracking-[0.2em] font-bold text-[#9c7428] uppercase block mb-0.5">
+                TAHAP PERJALANAN —
+              </span>
+              <h3 className="font-serif text-base font-bold text-[#0a4b2f] mb-0.5">
+                MENENTUKAN ARAH
+              </h3>
+              <p className="text-[11px] font-serif italic text-[#0a4b2f]/80">Ke mana saya akan melangkah?</p>
+            </div>
+
+            <div className="bg-[#f7f2ea]/50 pb-5 px-5 flex-1 rounded-b-xl border border-[#ede3d4] shadow-sm flex flex-col -mt-2 pt-5">
+              <div className="border-t border-[#ede3d4] pt-3 mb-3">
+                <span className="block text-[8px] tracking-widest font-bold text-[#9c7428] uppercase mb-1">
+                  FOKUS UTAMA —
+                </span>
+                <p className="text-xs text-gray-800 leading-relaxed font-medium">
+                  Matangkan pilihan, menunjukkan karya, dan menyiapkan diri ke jenjang selanjutnya.
+                </p>
+              </div>
+
+              <div className="pt-2 border-t border-[#ede3d4] flex flex-col flex-1">
+                <span className="block text-[8px] tracking-widest font-bold text-[#9c7428] uppercase mb-2">
+                  PROGRAM KUNCI —
+                </span>
+                <div className="space-y-3.5">
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><Scroll className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Taklif</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Memikul amanah dan tanggung jawab</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><FileText className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Proposal Diri III</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Refleksi dan rencana masa depan</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><Award className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Expo Talenta</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Menunjukkan karya dan potensi</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><BookOpen className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Riset / Prestasi</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Mengembangkan minat dan capaian</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#0a4b2f] bg-[#0a4b2f]/10 p-1.5 rounded-lg mt-0.5 shrink-0"><GraduationCap className="w-4 h-4" /></span>
+                    <div>
+                      <strong className="block text-gray-900 text-xs font-bold">Transition Experience</strong>
+                      <span className="text-gray-700 text-[11px] font-medium leading-tight block mt-0.5">Persiapan studi lanjut ke MA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ================= LULUSAN MTs (BALANCED COMPACT ARCH) ================= */}
+<div className="relative bg-gradient-to-b from-[#0a4b2f] via-[#073824] to-[#042417] text-white rounded-t-[100px] rounded-b-[32px] py-6 px-5 flex flex-col justify-between shadow-[0_15px_35px_rgba(7,56,36,0.25)] border-2 border-[#e5a93c]/70 lg:mt-6 w-full max-w-[280px] mx-auto min-h-[430px] overflow-hidden group">
+  
+  {/* Aksen Background Glow */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#e5a93c15_0%,transparent_70%)] pointer-events-none"></div>
+  <div className="absolute -top-10 -right-10 w-28 h-28 bg-[#e5a93c]/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+
+  {/* Header: Ikon & Judul Lebih Ringkas */}
+  <div className="relative z-10 flex flex-col items-center text-center w-full">
+    <div className="w-12 h-12 rounded-xl bg-white/[0.06] border border-[#e5a93c]/40 flex items-center justify-center mb-2.5 text-[#e5a93c] shadow-inner group-hover:scale-110 transition-transform duration-300">
+      <svg 
+        className="w-7 h-7 text-[#e5a93c]" 
+        viewBox="0 0 100 80" 
+        fill="none" 
+        stroke="currentColor" 
+        strokeWidth="3.5"
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      >
+        <path d="M10 68 L38 36 L52 50 L68 28 L90 68 Z" />
+        <path d="M68 28 L68 10 L86 15 L68 22" fill="currentColor" fillOpacity="0.4" />
+      </svg>
+    </div>
+
+    <div className="space-y-0.5">
+      <h3 className="font-serif text-base sm:text-lg font-extrabold text-white tracking-widest leading-tight drop-shadow-md">
+        LULUSAN MTs
+      </h3>
+      <div className="w-10 h-[2px] bg-gradient-to-r from-transparent via-[#e5a93c] to-transparent mx-auto mt-1.5 rounded-full"></div>
+    </div>
+  </div>
+
+  {/* Daftar Karakter: Grid 2 Kolom agar Tinggi Card Menyusut dan Seimbang */}
+  <div className="relative z-10 w-full grid grid-cols-2 gap-2 my-2">
+    {[
+      "Beriman", 
+      "Beradab", 
+      "Berilmu", 
+      "Mandiri", 
+      "Tangguh", 
+      "Berkarya", 
+      "Bermanfaat"
+    ].map((item, index) => (
+      <div 
+        key={index}
+        className={`bg-white/[0.04] hover:bg-[#e5a93c]/20 border border-white/10 hover:border-[#e5a93c]/65 rounded-xl py-2 px-2 text-center transition-all duration-300 shadow-2xs group/item cursor-default ${
+          index === 6 ? 'col-span-2 py-1.5' : '' // Item terakhir ("Bermanfaat") melebar di bawah secara simetris
+        }`}
+      >
+        <span className="text-[11px] sm:text-xs font-semibold tracking-wide text-white group-hover/item:text-[#f4d06f] transition-colors drop-shadow">
+          {item}
+        </span>
+      </div>
+    ))}
+  </div>
+
+  {/* Footer Kecil / Tagline */}
+  <div className="relative z-10 text-center pt-2 border-t border-white/10 w-full">
+    <span className="text-[9px] text-[#e5a93c]/90 font-serif italic tracking-wider uppercase">
+      Profil Pelajar Asih Putera
+    </span>
+  </div>
+
+</div>
+
         </div>
+
+        {/* Kotak Bawah: Nilai yang Menemani Setiap Langkah */}
+        <div className="grid grid-cols-1 gap-4 items-stretch mt-6">
+          <div className="bg-[#f4f3ee] text-gray-900 rounded-full py-2.5 px-3 sm:px-4 flex flex-col lg:flex-row items-center justify-between shadow-lg border border-[#e5a93c]/40">
+            
+            {/* Sisi Kiri: Banner Hijau Tua Bentuk Panah Miring */}
+            <div 
+              className="bg-[#073824] text-white py-4 px-6 sm:px-8 mb-3 lg:mb-0 text-left shrink-0 shadow-md w-full lg:w-auto flex flex-col justify-center"
+              style={{
+                clipPath: "polygon(0% 0%, 88% 0%, 100% 50%, 88% 100%, 0% 100%)",
+                borderRadius: "9999px 0 0 9999px",
+                minHeight: "75px"
+              }}
+            >
+              <span className="text-[10px] sm:text-[11px] tracking-[0.15em] font-bold text-[#e5a93c] uppercase block leading-tight">
+                5 NILAI<br />UNTUK MEMBENTUK REMAJA UTUH
+              </span>
+              <div className="w-6 h-[2px] bg-[#e5a93c] mt-1.5"></div>
+            </div>
+
+            {/* Sisi Kanan: Daftar 5 Item Nilai */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 w-full items-center px-2 py-1">
+              
+              {/* Cageur */}
+              <div className="flex items-center gap-2.5 relative lg:border-r lg:border-[#d4cebc] lg:pr-2">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-b from-white to-[#f9f8f6] text-[#073824] flex items-center justify-center shrink-0 shadow-xs border border-[#c28e38]/30">
+                  <Heart className="w-6 h-6 text-[#073824]" strokeWidth={2.2} />
+                </div>
+                <div>
+                  <strong className="font-serif text-[11px] sm:text-xs font-bold text-gray-900 block leading-tight">Cageur</strong>
+                  <span className="text-[10px] sm:text-[11px] text-gray-700 font-medium block leading-tight mt-0.5">Sehat jasmani & rohani</span>
+                </div>
+              </div>
+
+              {/* Bageur */}
+              <div className="flex items-center gap-2.5 relative lg:border-r lg:border-[#d4cebc] lg:pr-2">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-b from-white to-[#f9f8f6] text-[#073824] flex items-center justify-center shrink-0 shadow-xs border border-[#c28e38]/30">
+                  <Users className="w-6 h-6 text-[#073824]" strokeWidth={2.2} />
+                </div>
+                <div>
+                  <strong className="font-serif text-[11px] sm:text-xs font-bold text-gray-900 block leading-tight">Bageur</strong>
+                  <span className="text-[10px] sm:text-[11px] text-gray-700 font-medium block leading-tight mt-0.5">Berakhlak & empatik</span>
+                </div>
+              </div>
+
+              {/* Bener */}
+              <div className="flex items-center gap-2.5 relative lg:border-r lg:border-[#d4cebc] lg:pr-2">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-b from-white to-[#f9f8f6] text-[#073824] flex items-center justify-center shrink-0 shadow-xs border border-[#c28e38]/30">
+                  <Shield className="w-6 h-6 text-[#073824]" strokeWidth={2.2} />
+                </div>
+                <div>
+                  <strong className="font-serif text-[11px] sm:text-xs font-bold text-gray-900 block leading-tight">Bener</strong>
+                  <span className="text-[10px] sm:text-[11px] text-gray-700 font-medium block leading-tight mt-0.5">Jujur & bertanggung jawab</span>
+                </div>
+              </div>
+
+              {/* Pinter */}
+              <div className="flex items-center gap-2.5 relative lg:border-r lg:border-[#d4cebc] lg:pr-2">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-b from-white to-[#f9f8f6] text-[#073824] flex items-center justify-center shrink-0 shadow-xs border border-[#c28e38]/30">
+                  <BookOpen className="w-6 h-6 text-[#073824]" strokeWidth={2.2} />
+                </div>
+                <div>
+                  <strong className="font-serif text-[11px] sm:text-xs font-bold text-gray-900 block leading-tight">Pinter</strong>
+                  <span className="text-[10px] sm:text-[11px] text-gray-700 font-medium block leading-tight mt-0.5">Cerdas, kritis, kreatif</span>
+                </div>
+              </div>
+
+              {/* Singer */}
+              <div className="flex items-center gap-2.5 relative col-span-2 sm:col-span-1">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-b from-white to-[#f9f8f6] text-[#073824] flex items-center justify-center shrink-0 shadow-xs border border-[#c28e38]/30">
+                  <Star className="w-6 h-6 text-[#073824] fill-[#073824]" strokeWidth={2.2} />
+                </div>
+                <div>
+                  <strong className="font-serif text-[11px] sm:text-xs font-bold text-gray-900 block leading-tight">Singer</strong>
+                  <span className="text-[10px] sm:text-[11px] text-gray-700 font-medium block leading-tight mt-0.5">Tangguh & berinisiatif</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );

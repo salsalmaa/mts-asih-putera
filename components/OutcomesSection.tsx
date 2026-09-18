@@ -1,172 +1,96 @@
 import React from 'react';
-import { OUTCOMES_DATA } from '../data/schoolData';
-import {
-  IslamicCanvasWatermark,
-  IslamicHeaderMedallion
-} from './IslamicElements';
 
 export const OutcomesSection: React.FC = () => {
-  // Enhanced Islamic Icons scaled up for visual impact and alignment with school standards
-  const renderEnhancedIcon = (id: string) => {
-    switch (id) {
-      case 'iman-akhlak':
-      case 'out-1':
-        return (
-          <svg viewBox="0 0 36 36" className="w-16 h-16 sm:w-20 sm:h-20" fill="none">
-            <path
-              d="M8 30 V16 C8 10 18 4 18 4 C18 4 28 10 28 16 V30"
-              stroke="#e5a93c"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeDasharray="2 2"
-              className="opacity-70"
-            />
-            <path
-              d="M6 24 C12 21 17 22 18 25 C19 22 24 21 30 24 V13 C24 10 19 11 18 14 C17 11 12 10 6 13 Z"
-              stroke="#ffffff"
-              strokeWidth="1.6"
-              strokeLinejoin="round"
-              fill="#0a4b2f"
-              fillOpacity="0.9"
-            />
-            <path d="M18 14 V25" stroke="#e5a93c" strokeWidth="1.5" />
-            <circle cx="18" cy="8" r="2" fill="#e5a93c" />
-            <path d="M18 4 V7 M18 9 V12 M15 8 H17 M19 8 H21" stroke="#e5a93c" strokeWidth="1.2" strokeLinecap="round" />
-          </svg>
-        );
-      case 'nalar-prestasi':
-      case 'out-2':
-        return (
-          <svg viewBox="0 0 36 36" className="w-16 h-16 sm:w-20 sm:h-20" fill="none">
-            <circle cx="18" cy="14" r="11" stroke="#e5a93c" strokeWidth="0.9" strokeDasharray="1.5 2" className="opacity-80" />
-            <path
-              d="M10 8 H26 V17 C26 21.4 22.4 25 18 25 C13.6 25 10 21.4 10 17 V8 Z"
-              stroke="#ffffff"
-              strokeWidth="1.6"
-              fill="#0a4b2f"
-              fillOpacity="0.9"
-            />
-            <path d="M10 11 H6 C4.9 11 4 11.9 4 13 V15 C4 17.2 5.8 19 8 19 H10" stroke="#e5a93c" strokeWidth="1.4" strokeLinecap="round" />
-            <path d="M26 11 H30 C31.1 11 32 11.9 32 13 V15 C32 17.2 30.2 19 28 19 H26" stroke="#e5a93c" strokeWidth="1.4" strokeLinecap="round" />
-            <path d="M18 25 V29 M12 29 H24" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" />
-            <rect x="15" y="13" width="6" height="6" stroke="#e5a93c" strokeWidth="1.2" fill="#0a4b2f" />
-            <rect x="15" y="13" width="6" height="6" transform="rotate(45 18 16)" stroke="#e5a93c" strokeWidth="1.2" fill="#0a4b2f" />
-          </svg>
-        );
-      case 'kepemimpinan-kemandirian':
-      case 'out-3':
-        return (
-          <svg viewBox="0 0 36 36" className="w-16 h-16 sm:w-20 sm:h-20" fill="none">
-            <circle cx="18" cy="18" r="13" stroke="#ffffff" strokeWidth="1.4" fill="#0a4b2f" fillOpacity="0.9" />
-            <circle cx="18" cy="18" r="10.5" stroke="#e5a93c" strokeWidth="0.9" strokeDasharray="2 2" className="opacity-90" />
-            <path
-              d="M18 7 C14 7 11 10 11 14 C11 17 13 19 16 20 C13.5 19 12.5 16 13.5 13.5 C14.5 11 17 9.5 18 7 Z"
-              fill="#e5a93c"
-            />
-            <polygon points="18,8 21.5,18 18,16 14.5,18" fill="#ffffff" />
-            <polygon points="18,28 21.5,18 18,20 14.5,18" fill="#e5a93c" />
-            <circle cx="18" cy="18" r="1.8" fill="#e5a93c" stroke="#ffffff" strokeWidth="1" />
-          </svg>
-        );
-      case 'karya-kebermanfaatan':
-      case 'out-4':
-        return (
-          <svg viewBox="0 0 36 36" className="w-16 h-16 sm:w-20 sm:h-20" fill="none">
-            <path
-              d="M26 8 C20 6 12 10 10 17 C8 24 13 30 20 31 C24 31.5 28 29.5 30 26.5 C24 28 17 24 16 18 C15 12 20 8.5 26 8 Z"
-              fill="#e5a93c"
-              fillOpacity="0.3"
-              stroke="#e5a93c"
-              strokeWidth="1.2"
-            />
-            <path
-              d="M18 28 C18 20 25 15 25 15 C25 15 25 22 18 28 Z"
-              stroke="#ffffff"
-              strokeWidth="1.5"
-              fill="#0a4b2f"
-              fillOpacity="0.9"
-            />
-            <path
-              d="M18 24 C18 17 12 13 12 13 C12 13 12 19 18 24 Z"
-              stroke="#ffffff"
-              strokeWidth="1.5"
-              fill="#0a4b2f"
-              fillOpacity="0.9"
-            />
-            <path d="M18 28 V19" stroke="#e5a93c" strokeWidth="1.5" strokeLinecap="round" />
-            <circle cx="27" cy="11" r="1.8" fill="#e5a93c" />
-          </svg>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <section className="relative w-full py-12 sm:py-16 bg-[#faf9f5] border-t border-gray-200/60 overflow-hidden">
-      <IslamicCanvasWatermark opacityClass="opacity-[0.065]" colorClass="text-[#0a4b2f]" />
+    <section className="relative w-full bg-gradient-to-b from-[#fbf9f5] via-[#f4efe6] to-[#ece5d5] overflow-hidden py-20 lg:py-28 border-y border-[#d8cebe]/40">
+      
+      {/* Ambient Lighting Background */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#c28e38]/10 to-[#073b26]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#c28e38]/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <p className="text-[12px] sm:text-xs font-semibold tracking-widest uppercase text-[#9c7428] mb-1 font-sans">
-            Output & Keberhasilan Belajar
-          </p>
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
-            <IslamicHeaderMedallion />
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-[34px] font-bold text-[#0a4b2f] tracking-tight">
-              4 Hasil Utama Pendidikan MTs Asih Putera
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+        
+        {/* Layout Utama 3 Kolom yang Seimbang & Rapi */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+          
+          {/* KOLOM KIRI: Teks Pengantar & Nilai Jual (Span 4) */}
+          <div className="lg:col-span-4 flex flex-col justify-center">
+            
+            {/* Badge Eksklusif */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#c28e38]/30 mb-5 shadow-sm w-fit">
+              <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#c28e38] to-[#dfad53] animate-pulse"></span>
+              <span className="text-[11px] tracking-[0.2em] font-extrabold text-[#073b26] uppercase">
+                FILOSOFI PENDIDIKAN ASIH PUTERA
+              </span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#073b26] tracking-tight leading-[1.15] mb-3">
+              Mendidik dengan <br />
+              <span className="bg-gradient-to-r from-[#073b26] to-[#125c3d] bg-clip-text text-transparent underline decoration-[#c28e38]/40 decoration-wavy decoration-1">Sepenuh Hati</span>
             </h2>
-            <IslamicHeaderMedallion isFlipped />
-          </div>
 
-          <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-            Profil lulusan yang kokoh dalam akidah, unggul dalam nalar intelektual, matang dalam kepribadian, serta berdaya guna bagi kemaslahatan umat.
-          </p>
-        </div>
+            <p className="font-serif text-xs sm:text-sm font-bold text-[#b5812e] mb-3 tracking-widest uppercase">
+              ✦ Berilmu untuk Peradaban Baru ✦
+            </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {OUTCOMES_DATA.map((item) => (
-            <div
-              key={item.id}
-              className="relative overflow-hidden bg-white hover:bg-white rounded-2xl p-6 sm:p-7 border border-gray-100 hover:border-[#0a4b2f]/30 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-[#0a4b2f]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col group text-center sm:text-left cursor-pointer"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#e5a93c] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+              Kami merajut pendidikan sebagai proses menumbuhkan fitrah dan potensi anak secara utuh — memadukan kedalaman tauhid, keluhuran adab, ketajaman ilmu, dan kekuatan amal nyata.
+            </p>
 
-              {/* Ornamen sudut (TazhibCompactCorner) telah dihapus dari sini */}
-
-              <div 
-                className="absolute -right-6 -bottom-6 w-32 h-32 pointer-events-none opacity-[0.03] group-hover:opacity-[0.07] transition-opacity text-[#0a4b2f]"
-                aria-hidden="true"
+            {/* Tombol CTA Kelas Atas */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center">
+              <a 
+                href="#pendaftaran" 
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#073b26] to-[#0a4d33] text-white text-xs sm:text-sm font-bold tracking-wider uppercase shadow-xl hover:shadow-2xl hover:from-[#052b1b] hover:to-[#073b26] transition-all duration-300 border border-[#c28e38]/30 overflow-hidden w-fit"
               >
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-currentColor" strokeWidth="2">
-                  <polygon points="50,5 63,37 95,50 63,63 50,95 37,63 5,50 37,37" />
-                  <polygon points="50,18 60,40 82,50 60,60 50,82 40,60 18,50 40,40" strokeDasharray="3 3" />
-                  <circle cx="50" cy="50" r="14" />
-                  <circle cx="50" cy="50" r="6" fill="currentColor" fillOpacity="0.4" />
-                </svg>
+                {/* Efek Kilau Cahaya Berjalan */}
+                <span className="absolute top-0 right-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[200%] transition-transform duration-1000"></span>
+                
+                <span>Daftar Sekarang</span>
+                <span className="group-hover:translate-x-1.5 transition-transform text-[#dfad53] font-black text-base">→</span>
+              </a>
+            </div>
+
+            {/* Informasi Pendukung Kepercayaan */}
+            <div className="mt-6 pt-5 border-t border-[#d8cebe]/60 flex items-center gap-6">
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#073b26]">100%</span>
+                <span className="text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-wider font-medium">Berbasis Karakter</span>
               </div>
-
-              {/* Enhanced Larger Prominent Icon Container */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#0a4b2f] border-2 border-[#157147] group-hover:border-[#e5a93c] flex items-center justify-center mb-5 mx-auto sm:mx-0 shadow-md group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(229,169,60,0.35)] transition-all duration-300 relative z-10 text-white">
-                {renderEnhancedIcon(item.id)}
-              </div>
-
-              <h3 className="font-serif text-lg font-bold text-[#0a4b2f] mb-2.5 leading-snug group-hover:text-[#126b42] transition-colors relative z-10">
-                {item.title}
-              </h3>
-
-              <p className="text-gray-600 group-hover:text-gray-900 text-xs sm:text-[13px] leading-relaxed relative z-10 transition-colors">
-                {item.description}
-              </p>
-
-              <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between opacity-85 group-hover:opacity-100 transition-opacity text-[11px] font-semibold text-[#9c7428] relative z-10">
-                <span>Asih Putera Standard</span>
-                <span className="text-[#0a4b2f] group-hover:text-[#9c7428] transition-colors">✦</span>
+              <div className="w-[1px] h-8 bg-[#d8cebe]"></div>
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#073b26]">Unggul</span>
+                <span className="text-[10px] sm:text-[11px] text-gray-500 uppercase tracking-wider font-medium">Prestasi & Adab</span>
               </div>
             </div>
-          ))}
+
+          </div>
+
+          {/* KOLOM TENGAH: Gambar Piramida Tanpa Bingkai (Span 6) */}
+          <div className="lg:col-span-6 flex flex-col items-center justify-center">
+            <div className="w-full relative flex flex-col items-center">
+              <img 
+                src="/images/piramida-filosofi.png" 
+                alt="Filosofi Pendidikan Asih Putera - Piramida Konsep" 
+                className="w-full h-auto object-contain block mix-blend-multiply scale-100 lg:scale-105 transition-transform duration-500 hover:scale-108"
+                loading="lazy" 
+              />
+            </div>
+          </div>
+
+          {/* KOLOM KANAN: Kutipan Filosofis Eksklusif (Span 2) */}
+          <div className="lg:col-span-2 flex flex-col justify-center">
+            <div className="relative p-5 sm:p-6 rounded-2xl bg-[#073b26]/[0.03] border border-[#c28e38]/20 shadow-sm backdrop-blur-sm">
+              <span className="text-[#c28e38] text-4xl sm:text-5xl font-serif leading-none absolute -top-3 sm:-top-4 left-4 select-none opacity-40">“</span>
+              <p className="font-serif italic text-gray-800 text-xs sm:text-sm leading-relaxed mb-4 relative z-10">
+                Pendidikan bukan sekadar transfer ilmu, tetapi menyiapkan manusia yang memberi arti bagi peradaban.
+              </p>
+              <div className="w-8 h-[2px] bg-gradient-to-r from-[#c28e38] to-[#dfad53] rounded-full"></div>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

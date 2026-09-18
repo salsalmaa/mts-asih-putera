@@ -5,7 +5,6 @@ import { Maximize2 } from 'lucide-react';
 import { FacilityItem } from '../types';
 import {
   IslamicCanvasWatermark,
-  TazhibCompactCorner,
   IslamicHeaderMedallion,
   MosqueSilhouetteWatermark,
 } from './IslamicElements';
@@ -63,8 +62,8 @@ export const FacilitiesSectionClient: React.FC<FacilitiesSectionClientProps> = (
             Belum ada data fasilitas tersedia.
           </div>
         ) : (
-          /* 6 Facilities Grid with Emerald & Warm Gold Themed Luminescence */
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+          /* 6 Facilities Grid with Emerald & Warm Gold Themed Luminescence (Gap diperkecil, Card diperbesar) */
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {facilitiesList.map((item) => (
               <div
                 key={item.id}
@@ -77,22 +76,16 @@ export const FacilitiesSectionClient: React.FC<FacilitiesSectionClientProps> = (
                   aria-hidden="true"
                 />
 
-                {/* 2. Main Card Container with Subtle Emerald-Green Luminescence & Elevation */}
+                {/* 2. Main Card Container */}
                 <div className="relative w-full bg-white rounded-xl overflow-hidden border border-[#0a4b2f]/25 group-hover:border-[#0a4b2f] shadow-[0_4px_18px_rgba(10,75,47,0.08),0_0_14px_rgba(10,75,47,0.12)] group-hover:shadow-[0_12px_30px_rgba(10,75,47,0.22),0_0_22px_rgba(21,121,92,0.32)] transition-all duration-300 flex flex-col group-hover:-translate-y-1.5 z-10">
-                  {/* 3. Top Rim-Light Shimmer Highlight in Refined Warm Gold & Emerald */}
+                  {/* 3. Top Rim-Light Shimmer Highlight */}
                   <div
                     className="absolute top-0 inset-x-0 h-[1.5px] bg-linear-to-r from-transparent via-[#d49b28] to-transparent opacity-80 group-hover:opacity-100 group-hover:h-[2px] transition-all z-30 pointer-events-none"
                     aria-hidden="true"
                   />
 
-                  {/* Tazhib Corner Flourishes */}
-                  <TazhibCompactCorner position="top-left" color="#0a4b2f" accentColor="#c89635" />
-                  <TazhibCompactCorner position="top-right" color="#0a4b2f" accentColor="#c89635" />
-                  <TazhibCompactCorner position="bottom-left" color="#0a4b2f" accentColor="#c89635" />
-                  <TazhibCompactCorner position="bottom-right" color="#0a4b2f" accentColor="#c89635" />
-
-                  {/* Photo Container with Forest Green & Warm Accent Lighting Overlay */}
-                  <div className="h-32 sm:h-36 relative overflow-hidden bg-gray-100 shrink-0">
+                  {/* Photo Container dengan tinggi yang ditingkatkan agar visual lebih besar */}
+                  <div className="h-40 sm:h-48 relative overflow-hidden bg-gray-100 shrink-0">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -110,7 +103,7 @@ export const FacilitiesSectionClient: React.FC<FacilitiesSectionClientProps> = (
                     </div>
                   </div>
 
-                  {/* Title Container - Menggunakan flex-1 dan flex items-center agar tinggi seluruh card konsisten rata */}
+                  {/* Title Container */}
                   <div className="p-3 text-center flex-1 flex items-center justify-center min-h-[58px] sm:min-h-[64px] relative z-10 bg-white border-t border-gray-100 group-hover:border-[#0a4b2f]/20 transition-colors">
                     <h4 className="font-serif font-bold text-xs sm:text-[13px] text-[#0a4b2f] leading-snug group-hover:text-[#d49b28] transition-colors line-clamp-2">
                       {item.title}
